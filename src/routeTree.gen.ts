@@ -10,12 +10,37 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DemoRouteRouteImport } from './routes/demo/route'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as DemoIndexRouteImport } from './routes/demo/index'
+import { Route as DemoActivitiesRouteImport } from './routes/demo/activities'
+import { Route as DemoAffiliatesRouteImport } from './routes/demo/affiliates'
+import { Route as DemoAgentsRouteImport } from './routes/demo/agents'
+import { Route as DemoAiChatRouteImport } from './routes/demo/ai-chat'
+import { Route as DemoAutomationsRouteImport } from './routes/demo/automations'
+import { Route as DemoCampaignsRouteImport } from './routes/demo/campaigns'
+import { Route as DemoClientsRouteImport } from './routes/demo/clients'
+import { Route as DemoCompaniesRouteImport } from './routes/demo/companies'
+import { Route as DemoContactsRouteImport } from './routes/demo/contacts'
+import { Route as DemoDashboardRouteImport } from './routes/demo/dashboard'
+import { Route as DemoDealsRouteImport } from './routes/demo/deals'
+import { Route as DemoIntegrationsRouteImport } from './routes/demo/integrations'
+import { Route as DemoInvoicesRouteImport } from './routes/demo/invoices'
+import { Route as DemoReportsRouteImport } from './routes/demo/reports'
+import { Route as DemoServicesRouteImport } from './routes/demo/services'
+import { Route as DemoSettingsRouteImport } from './routes/demo/settings'
+import { Route as DemoUsersRouteImport } from './routes/demo/users'
+import { Route as DemoWizardRouteImport } from './routes/demo/wizard'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoRouteRoute = DemoRouteRouteImport.update({
+  id: '/demo',
+  path: '/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
@@ -28,33 +53,257 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoIndexRoute = DemoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoActivitiesRoute = DemoActivitiesRouteImport.update({
+  id: '/activities',
+  path: '/activities',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoAffiliatesRoute = DemoAffiliatesRouteImport.update({
+  id: '/affiliates',
+  path: '/affiliates',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoAgentsRoute = DemoAgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoAiChatRoute = DemoAiChatRouteImport.update({
+  id: '/ai-chat',
+  path: '/ai-chat',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoAutomationsRoute = DemoAutomationsRouteImport.update({
+  id: '/automations',
+  path: '/automations',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoCampaignsRoute = DemoCampaignsRouteImport.update({
+  id: '/campaigns',
+  path: '/campaigns',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoClientsRoute = DemoClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoCompaniesRoute = DemoCompaniesRouteImport.update({
+  id: '/companies',
+  path: '/companies',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoContactsRoute = DemoContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoDashboardRoute = DemoDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoDealsRoute = DemoDealsRouteImport.update({
+  id: '/deals',
+  path: '/deals',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoIntegrationsRoute = DemoIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoInvoicesRoute = DemoInvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoReportsRoute = DemoReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoServicesRoute = DemoServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoSettingsRoute = DemoSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoUsersRoute = DemoUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
+const DemoWizardRoute = DemoWizardRouteImport.update({
+  id: '/wizard',
+  path: '/wizard',
+  getParentRoute: () => DemoRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/demo': typeof DemoRouteRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/demo/activities': typeof DemoActivitiesRoute
+  '/demo/affiliates': typeof DemoAffiliatesRoute
+  '/demo/agents': typeof DemoAgentsRoute
+  '/demo/ai-chat': typeof DemoAiChatRoute
+  '/demo/automations': typeof DemoAutomationsRoute
+  '/demo/campaigns': typeof DemoCampaignsRoute
+  '/demo/clients': typeof DemoClientsRoute
+  '/demo/companies': typeof DemoCompaniesRoute
+  '/demo/contacts': typeof DemoContactsRoute
+  '/demo/dashboard': typeof DemoDashboardRoute
+  '/demo/deals': typeof DemoDealsRoute
+  '/demo/integrations': typeof DemoIntegrationsRoute
+  '/demo/invoices': typeof DemoInvoicesRoute
+  '/demo/reports': typeof DemoReportsRoute
+  '/demo/services': typeof DemoServicesRoute
+  '/demo/settings': typeof DemoSettingsRoute
+  '/demo/users': typeof DemoUsersRoute
+  '/demo/wizard': typeof DemoWizardRoute
+  '/demo/': typeof DemoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/demo/activities': typeof DemoActivitiesRoute
+  '/demo/affiliates': typeof DemoAffiliatesRoute
+  '/demo/agents': typeof DemoAgentsRoute
+  '/demo/ai-chat': typeof DemoAiChatRoute
+  '/demo/automations': typeof DemoAutomationsRoute
+  '/demo/campaigns': typeof DemoCampaignsRoute
+  '/demo/clients': typeof DemoClientsRoute
+  '/demo/companies': typeof DemoCompaniesRoute
+  '/demo/contacts': typeof DemoContactsRoute
+  '/demo/dashboard': typeof DemoDashboardRoute
+  '/demo/deals': typeof DemoDealsRoute
+  '/demo/integrations': typeof DemoIntegrationsRoute
+  '/demo/invoices': typeof DemoInvoicesRoute
+  '/demo/reports': typeof DemoReportsRoute
+  '/demo/services': typeof DemoServicesRoute
+  '/demo/settings': typeof DemoSettingsRoute
+  '/demo/users': typeof DemoUsersRoute
+  '/demo/wizard': typeof DemoWizardRoute
+  '/demo': typeof DemoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/demo': typeof DemoRouteRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/demo/activities': typeof DemoActivitiesRoute
+  '/demo/affiliates': typeof DemoAffiliatesRoute
+  '/demo/agents': typeof DemoAgentsRoute
+  '/demo/ai-chat': typeof DemoAiChatRoute
+  '/demo/automations': typeof DemoAutomationsRoute
+  '/demo/campaigns': typeof DemoCampaignsRoute
+  '/demo/clients': typeof DemoClientsRoute
+  '/demo/companies': typeof DemoCompaniesRoute
+  '/demo/contacts': typeof DemoContactsRoute
+  '/demo/dashboard': typeof DemoDashboardRoute
+  '/demo/deals': typeof DemoDealsRoute
+  '/demo/integrations': typeof DemoIntegrationsRoute
+  '/demo/invoices': typeof DemoInvoicesRoute
+  '/demo/reports': typeof DemoReportsRoute
+  '/demo/services': typeof DemoServicesRoute
+  '/demo/settings': typeof DemoSettingsRoute
+  '/demo/users': typeof DemoUsersRoute
+  '/demo/wizard': typeof DemoWizardRoute
+  '/demo/': typeof DemoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/robots.txt' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/demo'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/demo/activities'
+    | '/demo/affiliates'
+    | '/demo/agents'
+    | '/demo/ai-chat'
+    | '/demo/automations'
+    | '/demo/campaigns'
+    | '/demo/clients'
+    | '/demo/companies'
+    | '/demo/contacts'
+    | '/demo/dashboard'
+    | '/demo/deals'
+    | '/demo/integrations'
+    | '/demo/invoices'
+    | '/demo/reports'
+    | '/demo/services'
+    | '/demo/settings'
+    | '/demo/users'
+    | '/demo/wizard'
+    | '/demo/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/robots.txt' | '/sitemap.xml'
-  id: '__root__' | '/' | '/robots.txt' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/demo/activities'
+    | '/demo/affiliates'
+    | '/demo/agents'
+    | '/demo/ai-chat'
+    | '/demo/automations'
+    | '/demo/campaigns'
+    | '/demo/clients'
+    | '/demo/companies'
+    | '/demo/contacts'
+    | '/demo/dashboard'
+    | '/demo/deals'
+    | '/demo/integrations'
+    | '/demo/invoices'
+    | '/demo/reports'
+    | '/demo/services'
+    | '/demo/settings'
+    | '/demo/users'
+    | '/demo/wizard'
+    | '/demo'
+  id:
+    | '__root__'
+    | '/'
+    | '/demo'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/demo/activities'
+    | '/demo/affiliates'
+    | '/demo/agents'
+    | '/demo/ai-chat'
+    | '/demo/automations'
+    | '/demo/campaigns'
+    | '/demo/clients'
+    | '/demo/companies'
+    | '/demo/contacts'
+    | '/demo/dashboard'
+    | '/demo/deals'
+    | '/demo/integrations'
+    | '/demo/invoices'
+    | '/demo/reports'
+    | '/demo/services'
+    | '/demo/settings'
+    | '/demo/users'
+    | '/demo/wizard'
+    | '/demo/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DemoRouteRoute: typeof DemoRouteRouteWithChildren
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -66,6 +315,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/robots.txt': {
@@ -82,11 +338,193 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo/': {
+      id: '/demo/'
+      path: '/'
+      fullPath: '/demo/'
+      preLoaderRoute: typeof DemoIndexRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/activities': {
+      id: '/demo/activities'
+      path: '/activities'
+      fullPath: '/demo/activities'
+      preLoaderRoute: typeof DemoActivitiesRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/affiliates': {
+      id: '/demo/affiliates'
+      path: '/affiliates'
+      fullPath: '/demo/affiliates'
+      preLoaderRoute: typeof DemoAffiliatesRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/agents': {
+      id: '/demo/agents'
+      path: '/agents'
+      fullPath: '/demo/agents'
+      preLoaderRoute: typeof DemoAgentsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/ai-chat': {
+      id: '/demo/ai-chat'
+      path: '/ai-chat'
+      fullPath: '/demo/ai-chat'
+      preLoaderRoute: typeof DemoAiChatRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/automations': {
+      id: '/demo/automations'
+      path: '/automations'
+      fullPath: '/demo/automations'
+      preLoaderRoute: typeof DemoAutomationsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/campaigns': {
+      id: '/demo/campaigns'
+      path: '/campaigns'
+      fullPath: '/demo/campaigns'
+      preLoaderRoute: typeof DemoCampaignsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/clients': {
+      id: '/demo/clients'
+      path: '/clients'
+      fullPath: '/demo/clients'
+      preLoaderRoute: typeof DemoClientsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/companies': {
+      id: '/demo/companies'
+      path: '/companies'
+      fullPath: '/demo/companies'
+      preLoaderRoute: typeof DemoCompaniesRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/contacts': {
+      id: '/demo/contacts'
+      path: '/contacts'
+      fullPath: '/demo/contacts'
+      preLoaderRoute: typeof DemoContactsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/dashboard': {
+      id: '/demo/dashboard'
+      path: '/dashboard'
+      fullPath: '/demo/dashboard'
+      preLoaderRoute: typeof DemoDashboardRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/deals': {
+      id: '/demo/deals'
+      path: '/deals'
+      fullPath: '/demo/deals'
+      preLoaderRoute: typeof DemoDealsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/integrations': {
+      id: '/demo/integrations'
+      path: '/integrations'
+      fullPath: '/demo/integrations'
+      preLoaderRoute: typeof DemoIntegrationsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/invoices': {
+      id: '/demo/invoices'
+      path: '/invoices'
+      fullPath: '/demo/invoices'
+      preLoaderRoute: typeof DemoInvoicesRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/reports': {
+      id: '/demo/reports'
+      path: '/reports'
+      fullPath: '/demo/reports'
+      preLoaderRoute: typeof DemoReportsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/services': {
+      id: '/demo/services'
+      path: '/services'
+      fullPath: '/demo/services'
+      preLoaderRoute: typeof DemoServicesRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/settings': {
+      id: '/demo/settings'
+      path: '/settings'
+      fullPath: '/demo/settings'
+      preLoaderRoute: typeof DemoSettingsRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/users': {
+      id: '/demo/users'
+      path: '/users'
+      fullPath: '/demo/users'
+      preLoaderRoute: typeof DemoUsersRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
+    '/demo/wizard': {
+      id: '/demo/wizard'
+      path: '/wizard'
+      fullPath: '/demo/wizard'
+      preLoaderRoute: typeof DemoWizardRouteImport
+      parentRoute: typeof DemoRouteRoute
+    }
   }
 }
 
+interface DemoRouteRouteChildren {
+  DemoActivitiesRoute: typeof DemoActivitiesRoute
+  DemoAffiliatesRoute: typeof DemoAffiliatesRoute
+  DemoAgentsRoute: typeof DemoAgentsRoute
+  DemoAiChatRoute: typeof DemoAiChatRoute
+  DemoAutomationsRoute: typeof DemoAutomationsRoute
+  DemoCampaignsRoute: typeof DemoCampaignsRoute
+  DemoClientsRoute: typeof DemoClientsRoute
+  DemoCompaniesRoute: typeof DemoCompaniesRoute
+  DemoContactsRoute: typeof DemoContactsRoute
+  DemoDashboardRoute: typeof DemoDashboardRoute
+  DemoDealsRoute: typeof DemoDealsRoute
+  DemoIntegrationsRoute: typeof DemoIntegrationsRoute
+  DemoInvoicesRoute: typeof DemoInvoicesRoute
+  DemoReportsRoute: typeof DemoReportsRoute
+  DemoServicesRoute: typeof DemoServicesRoute
+  DemoSettingsRoute: typeof DemoSettingsRoute
+  DemoUsersRoute: typeof DemoUsersRoute
+  DemoWizardRoute: typeof DemoWizardRoute
+  DemoIndexRoute: typeof DemoIndexRoute
+}
+
+const DemoRouteRouteChildren: DemoRouteRouteChildren = {
+  DemoActivitiesRoute: DemoActivitiesRoute,
+  DemoAffiliatesRoute: DemoAffiliatesRoute,
+  DemoAgentsRoute: DemoAgentsRoute,
+  DemoAiChatRoute: DemoAiChatRoute,
+  DemoAutomationsRoute: DemoAutomationsRoute,
+  DemoCampaignsRoute: DemoCampaignsRoute,
+  DemoClientsRoute: DemoClientsRoute,
+  DemoCompaniesRoute: DemoCompaniesRoute,
+  DemoContactsRoute: DemoContactsRoute,
+  DemoDashboardRoute: DemoDashboardRoute,
+  DemoDealsRoute: DemoDealsRoute,
+  DemoIntegrationsRoute: DemoIntegrationsRoute,
+  DemoInvoicesRoute: DemoInvoicesRoute,
+  DemoReportsRoute: DemoReportsRoute,
+  DemoServicesRoute: DemoServicesRoute,
+  DemoSettingsRoute: DemoSettingsRoute,
+  DemoUsersRoute: DemoUsersRoute,
+  DemoWizardRoute: DemoWizardRoute,
+  DemoIndexRoute: DemoIndexRoute,
+}
+
+const DemoRouteRouteWithChildren = DemoRouteRoute._addFileChildren(
+  DemoRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DemoRouteRoute: DemoRouteRouteWithChildren,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

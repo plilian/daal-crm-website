@@ -239,14 +239,14 @@ function DemoPage() {
             <a href="#faq" className="transition-colors hover:text-slate-950 dark:hover:text-white">
               سؤالات متداول
             </a>
-            <a href={`${CRM_URL}/demo`} className="font-semibold text-blue-600 hover:text-blue-700">
+            <a href="/demo" className="font-semibold text-blue-600 hover:text-blue-700">
               دریافت دسترسی دمو
             </a>
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button asChild size="sm" className="hidden gap-1.5 rounded-lg sm:inline-flex">
-              <a href={`${CRM_URL}/demo`}>
+              <a href="/demo">
                 دریافت دسترسی دمو <ArrowUpLeft className="size-3.5" />
               </a>
             </Button>
@@ -288,7 +288,7 @@ function DemoPage() {
                   variant="outline"
                   className="rounded-lg border-[#cbd1da] bg-transparent px-5"
                 >
-                  <a href={`${CRM_URL}/demo`}>دریافت دسترسی دمو</a>
+                  <a href="/demo">دریافت دسترسی دمو</a>
                 </Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[11px] text-slate-500 dark:text-slate-400">
@@ -470,7 +470,7 @@ function DemoPage() {
               </p>
             </div>
             <Button asChild size="lg" className="shrink-0 gap-2 rounded-lg px-5">
-              <a href={`${CRM_URL}/demo`}>
+              <a href="/demo">
                 دریافت دسترسی دمو <ArrowUpLeft className="size-4" />
               </a>
             </Button>
@@ -591,7 +591,7 @@ function DeploymentSection() {
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button asChild className="gap-2 rounded-lg">
-            <a href={`${CRM_URL}/demo`}>
+            <a href="/demo">
               دریافت دسترسی دمو <ArrowUpLeft className="size-4" />
             </a>
           </Button>
@@ -721,7 +721,7 @@ function PricingSection() {
             </p>
           </div>
           <Button asChild variant="outline" className="shrink-0 gap-2 rounded-lg">
-            <a href={`${CRM_URL}/demo`}>
+            <a href="/demo">
               درخواست بررسی سفارشی <ArrowUpLeft className="size-4" />
             </a>
           </Button>
@@ -794,7 +794,7 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
         className="mt-6 w-full gap-2 rounded-lg"
         variant={plan.popular ? "default" : "outline"}
       >
-        <a href={`${CRM_URL}/demo`}>
+        <a href="/demo">
           {plan.cta} <ArrowUpLeft className="size-4" />
         </a>
       </Button>
