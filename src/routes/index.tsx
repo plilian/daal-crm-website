@@ -73,9 +73,9 @@ const FEATURES: Feature[] = [
     id: "leads",
     number: "۰۱",
     eyebrow: "مدیریت سرنخ و پرونده مشتری",
-    title: "از اولین تماس، اطلاعات رابطه را یک‌جا نگه دارید.",
+    title: "سابقه هر مشتری را یک‌جا در اختیار تیم بگذارید.",
     summary:
-      "سرنخ، مخاطب و شرکت در پرونده‌های مرتبط کنار هم قرار می‌گیرند تا تیم فروش همیشه سابقه و زمینه هر رابطه را بداند.",
+      "اطلاعات سرنخ، مخاطب و شرکت در پرونده‌های مرتبط کنار هم قرار می‌گیرد تا تیم فروش سابقه هر رابطه را یک‌جا ببیند.",
     bullets: [
       "ثبت سرنخ با منبع و وضعیت",
       "ارتباط مخاطب و شرکت با سابقه تعامل",
@@ -87,7 +87,7 @@ const FEATURES: Feature[] = [
     id: "pipeline",
     number: "۰۲",
     eyebrow: "معاملات و قیف فروش",
-    title: "برای هر معامله، مرحله و قدم بعدی معلوم است.",
+    title: "برای هر معامله، مرحله و اقدام بعدی روشن است.",
     summary:
       "معامله‌ها را در قیف فروش ببینید، بین مراحل جابه‌جا کنید و بدانید کدام فرصت به پیگیری نیاز دارد.",
     bullets: [
@@ -101,9 +101,9 @@ const FEATURES: Feature[] = [
     id: "followups",
     number: "۰۳",
     eyebrow: "پیگیری، کمپین و اتوماسیون",
-    title: "کاری که باید انجام شود، به زمان و مسئول وصل است.",
+    title: "پیگیری‌ها با مسئول و زمان مشخص پیش می‌روند.",
     summary:
-      "فعالیت‌های روزانه، کمپین‌های ارتباطی و قواعد خودکارسازی کمک می‌کنند هیچ فرصت فروشی بین دو تماس رها نشود.",
+      "فعالیت‌های روزانه، کمپین‌های ارتباطی و قواعد خودکارسازی کمک می‌کنند پیگیری هر فرصت به‌موقع انجام شود.",
     bullets: [
       "تقویم فعالیت و پیگیری",
       "کمپین‌های پیامکی و ایمیلی",
@@ -115,7 +115,7 @@ const FEATURES: Feature[] = [
     id: "billing",
     number: "۰۴",
     eyebrow: "پیش‌فاکتور، پرداخت و گزارش",
-    title: "فروش فقط تا صدور پیش‌فاکتور تمام نمی‌شود.",
+    title: "فروش را تا دریافت وجه دنبال کنید.",
     summary:
       "پیش‌فاکتور، پرداخت، مانده دریافتنی و گزارش فروش را به پرونده مشتری و معامله وصل کنید.",
     bullets: [
@@ -128,14 +128,14 @@ const FEATURES: Feature[] = [
   {
     id: "intelligence",
     number: "۰۵",
-    eyebrow: "چت با داده‌ها و اتصال‌ها",
-    title: "اطلاعات CRM را به سؤال و اقدام تبدیل کنید.",
+    eyebrow: "چت با داده‌ها و یکپارچه‌سازی",
+    title: "سؤال‌های فروش را مستقیم از داده‌ها بپرسید.",
     summary:
-      "دال به پیامک، ایمیل، تلفن و سرویس‌های هوش مصنوعی متصل می‌شود تا داده‌های فروش فقط ذخیره نشوند و به تصمیم بعدی کمک کنند.",
+      "دال به پیامک، ایمیل، تلفن و سرویس‌های هوش مصنوعی وصل می‌شود تا تیم فروش سریع‌تر اطلاعات را بررسی و درباره قدم بعدی تصمیم بگیرد.",
     bullets: [
       "چت با داده‌های CRM",
       "ساخت ایجنت‌های هوش مصنوعی",
-      "اتصال SMS، SMTP، Asterisk و مدل‌های AI",
+      "اتصال SMS، SMTP، Asterisk و مدل‌های هوش مصنوعی",
     ],
     icon: Bot,
   },
@@ -160,7 +160,7 @@ const DEMO_DEALS = [
     title: "اتوماسیون پیگیری مشتریان",
     company: "ابرنگار",
     amount: 76_800_000,
-    stage: "واجد شرایط",
+    stage: "ارزیابی اولیه",
     probability: 35,
   },
 ];
@@ -245,7 +245,7 @@ function DemoPage() {
               </h1>
               <p className="mt-6 max-w-md text-base leading-8 text-slate-600 dark:text-slate-300">
                 سامانه مدیریت مشتریان دال سرنخ‌ها، معاملات، پیگیری‌ها، پیش‌فاکتورها، پرداخت‌ها و
-                گزارش‌ها را در یک جریان کاری روشن کنار هم می‌آورد؛ روی سرور خودتان.
+                گزارش‌ها را در یک جریان کاری روشن کنار هم می‌آورد و روی سرور خودتان اجرا می‌شود.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="gap-2 rounded-lg px-5">
@@ -286,7 +286,7 @@ function DemoPage() {
             <Capability icon={Target} label="قیف و معاملات" />
             <Capability icon={CalendarCheck} label="پیگیری و خودکارسازی" />
             <Capability icon={ReceiptText} label="پیش‌فاکتور و پرداخت" />
-            <Capability icon={Plug} label="چت و اتصال‌های هوشمند" />
+            <Capability icon={Plug} label="چت با داده‌ها و یکپارچه‌سازی" />
           </div>
         </section>
 
@@ -297,14 +297,14 @@ function DemoPage() {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
-                قابلیت‌های واقعی محصول
+                ابزارهای فروش دال
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-                هر چیزی که تیم فروش برای جلو بردن معامله لازم دارد، یک‌جا.
+                سرنخ، معامله، پیگیری و پرداخت در یک مسیر مشخص.
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-                این‌ها قابلیت‌های واقعی سامانه‌اند؛ در دموی عمومی، صفحه‌های واقعی همین بخش‌ها را با
-                داده‌های نمونه می‌بینید.
+                از ثبت اولین سرنخ تا دریافت وجه، اطلاعات و کارهای تیم در یک جریان روشن کنار هم قرار
+                می‌گیرند.
               </p>
             </div>
 
@@ -388,8 +388,7 @@ function DemoPage() {
                 </h2>
               </div>
               <p className="max-w-sm text-sm leading-7 text-slate-300">
-                دال اطلاعات را از یک پرونده ساده به مسیر مشخص فروش، پیگیری و دریافت وجه تبدیل
-                می‌کند.
+                از ثبت سرنخ تا دریافت وجه، هر مرحله به قدم بعدی وصل است.
               </p>
             </div>
             <div className="grid divide-y divide-white/15 pt-2 sm:grid-cols-4 sm:divide-x sm:divide-y-0 sm:rtl:divide-x-reverse">
@@ -409,7 +408,7 @@ function DemoPage() {
                 number="۰۳"
                 icon={ClipboardCheck}
                 title="پیگیری تیم"
-                text="کار بعدی را به مسئول و زمان وصل کنید."
+                text="اقدام بعدی را به مسئول و زمان مشخص بسپارید."
               />
               <WorkflowStep
                 number="۰۴"
@@ -470,11 +469,11 @@ function AudienceSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <h2 className="text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            وقتی اطلاعات فروش پراکنده است، تیم نمی‌داند قدم بعدی چیست.
+            تیم فروش باید همیشه بداند هر مشتری در چه مرحله‌ای است.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            دال برای تیم‌هایی ساخته شده که می‌خواهند وضعیت هر مشتری، معامله و پیگیری را در یک نمای
-            روشن ببینند و تصمیم بعدی را به‌موقع بگیرند.
+            دال به تیم فروش کمک می‌کند وضعیت هر مشتری، معامله و پیگیری را در یک نمای روشن ببیند و
+            کار بعدی را به‌موقع انجام دهد.
           </p>
         </div>
         <div className="mt-12 grid divide-y border-y border-[#dfe2e6] dark:divide-slate-800 dark:border-slate-800 md:grid-cols-3 md:divide-x md:divide-y-0 md:rtl:divide-x-reverse">
@@ -486,7 +485,7 @@ function AudienceSection() {
           <AudienceItem
             number="۰۲"
             title="شرکت‌های خدماتی و پروژه‌ای"
-            text="از کشف نیاز تا پیشنهاد، قرارداد، پیش‌فاکتور و پرداخت، مسیر رابطه را ثبت کنید."
+            text="از کشف نیاز تا پیشنهاد، قرارداد، پیش‌فاکتور و پرداخت، روند فروش را ثبت کنید."
           />
           <AudienceItem
             number="۰۳"
@@ -521,11 +520,11 @@ function DeploymentSection() {
             خرید و استقرار
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            دال روی سرور شما اجرا می‌شود؛ داده‌های مشتری برای خودتان می‌ماند.
+            دال روی سرور شما اجرا می‌شود؛ اطلاعات مشتری نزد خودتان می‌ماند.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            دال سرویس ابری نیست. لایسنس سالانه را تهیه می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود
-            و راه‌اندازی اولیه را همراه تیم‌تان پیش می‌بریم.
+            لایسنس سالانه را تهیه می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود و راه‌اندازی اولیه
+            را همراه تیم‌تان پیش می‌بریم.
           </p>
         </div>
         <div className="mt-12 grid divide-y border-y border-[#dfe2e6] dark:divide-slate-800 dark:border-slate-800 md:grid-cols-4 md:divide-x md:divide-y-0 md:rtl:divide-x-reverse">
@@ -610,15 +609,15 @@ const PRICING_PLANS: PricingPlan[] = [
     price: "۳۹٫۹ میلیون",
     priceLabel: "لایسنس سالانه",
     users: "تا ۱۵ کاربر",
-    description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش دقیق‌تر جلو ببرد.",
+    description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش‌های دقیق‌تر جلو ببرد.",
     features: [
       "همه امکانات پلن شروع",
       "کمپین‌های ارتباطی پیامکی و ایمیلی",
-      "اتوماسیون ساخت پیگیری و ارسال پیام",
+      "ایجاد خودکار پیگیری و ارسال پیام",
       "گزارش فروش و عملکرد تیم",
       "چت با داده‌های CRM",
     ],
-    cta: "مشاهده دمو و دریافت قیمت",
+    cta: "مشاهده دموی واقعی",
     popular: true,
   },
   {
@@ -627,7 +626,7 @@ const PRICING_PLANS: PricingPlan[] = [
     price: "از ۷۹٫۹ میلیون",
     priceLabel: "لایسنس سالانه اختصاصی",
     users: "کاربران سفارشی",
-    description: "برای سازمانی که استقرار خصوصی، اتصال‌های اختصاصی و کنترل کامل داده می‌خواهد.",
+    description: "برای سازمانی که استقرار خصوصی، اتصال‌های موردنیاز و کنترل کامل داده می‌خواهد.",
     features: [
       "همه امکانات پلن رشد",
       "ایجنت‌های هوش مصنوعی و اتصال‌های پیشرفته",
@@ -665,12 +664,12 @@ function PricingSection() {
         </div>
         <div className="mt-8 grid gap-3 border-y border-[#dfe2e6] py-5 text-xs leading-6 text-slate-500 dark:border-slate-800 dark:text-slate-400 sm:grid-cols-3">
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">نصب اولیه:</span> بعد از
-            خرید، بدون هزینه جداگانه.
+            <span className="font-bold text-[#101827] dark:text-white">نصب اولیه:</span> پس از خرید
+            و بدون هزینه جداگانه انجام می‌شود.
           </p>
           <p>
             <span className="font-bold text-[#101827] dark:text-white">نوع خرید:</span> حق استفاده
-            سالانه روی سرور شما.
+            یک‌ساله از نرم‌افزار روی سرور شما.
           </p>
           <p>
             <span className="font-bold text-[#101827] dark:text-white">تمدید:</span> برای ادامه
@@ -911,7 +910,7 @@ function LeadsPreview() {
 
 function PipelinePreview() {
   const stages = [
-    { label: "سرنخ جدید", title: "گسترش کاربران سازمانی", amount: "۴۸۸ میلیون" },
+    { label: "سرنخ جدید", title: "استقرار CRM برای تیم سازمانی", amount: "۴۸۸ میلیون" },
     { label: "پیشنهاد", title: "راه‌اندازی مرکز تماس", amount: "۳۳۶ میلیون" },
     { label: "مذاکره", title: "پیاده‌سازی سامانه فروش", amount: "۱۴۸ میلیون" },
   ];
@@ -979,7 +978,8 @@ function FollowupsPreview() {
         ))}
       </div>
       <div className="mt-4 flex items-center gap-2 text-[10px] text-emerald-700 dark:text-emerald-300">
-        <Workflow className="size-3.5" /> با ثبت مخاطب جدید، پیگیری اولیه ساخته شود.
+        <Workflow className="size-3.5" /> با ثبت مخاطب جدید، پیگیری اولیه به‌صورت خودکار ایجاد
+        می‌شود.
       </div>
     </div>
   );
@@ -1069,8 +1069,8 @@ function IntelligencePreview() {
             کدام پیگیری امروز اولویت بیشتری دارد؟
           </p>
           <div className="mt-4 border-s border-blue-500 ps-3 text-[10px] leading-6 text-slate-500 dark:text-slate-400">
-            سه فرصت در مرحله پیشنهاد هستند؛ پیگیری «راه‌اندازی مرکز تماس» به‌دلیل مبلغ و احتمال،
-            اولویت بالاتری دارد.
+            سه فرصت در مرحله پیشنهاد قرار دارند؛ پیگیری «راه‌اندازی مرکز تماس» به‌دلیل مبلغ و
+            احتمال، اولویت بالاتری دارد.
           </div>
         </div>
       </div>
