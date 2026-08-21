@@ -268,6 +268,9 @@ function DemoPage() {
                 <span className="inline-flex items-center gap-1.5">
                   <ShieldDot /> داده‌ها روی زیرساخت شما
                 </span>
+                <span className="inline-flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300">
+                  <CircleDollarSign className="size-3.5" /> شروع از ۲۹۹ هزار تومان برای هر کاربر
+                </span>
               </div>
             </div>
             <div className="order-2 lg:order-2">
@@ -571,6 +574,71 @@ function DeploymentItem({ number, title, text }: { number: string; title: string
   );
 }
 
+type PricingPlan = {
+  name: string;
+  eyebrow: string;
+  monthly: string;
+  annual: string;
+  users: string;
+  description: string;
+  features: string[];
+  cta: string;
+  popular?: boolean;
+};
+
+const PRICING_PLANS: PricingPlan[] = [
+  {
+    name: "شروع",
+    eyebrow: "برای تیم‌های کوچک",
+    monthly: "۲۹۹ هزار",
+    annual: "۲۴۹ هزار",
+    users: "حداقل ۳ کاربر",
+    description: "برای اینکه تیم فروش سریع از اکسل و پیام‌رسان جدا شود و یک مسیر مشترک داشته باشد.",
+    features: [
+      "سرنخ، مخاطب و شرکت",
+      "معاملات و قیف فروش",
+      "پیگیری‌های روزانه و داشبورد",
+      "پیش‌فاکتور، پرداخت و گزارش پایه",
+    ],
+    cta: "اول دمو را ببینید",
+  },
+  {
+    name: "رشد",
+    eyebrow: "برای تیم‌های فروش در حال رشد",
+    monthly: "۳۹۹ هزار",
+    annual: "۳۳۳ هزار",
+    users: "حداقل ۳ کاربر",
+    description:
+      "برای تیمی که می‌خواهد پیگیری‌ها، کمپین‌ها و تصمیم‌های فروش را منظم و قابل‌اندازه‌گیری کند.",
+    features: [
+      "همه امکانات پلن شروع",
+      "اتوماسیون و اجرای خودکار پیگیری",
+      "کمپین‌های ایمیلی و پیامکی",
+      "چت با داده‌ها و ایجنت‌های AI",
+      "گزارش‌های تیمی و نقش‌های دسترسی",
+    ],
+    cta: "مشاهده دمو و دریافت قیمت",
+    popular: true,
+  },
+  {
+    name: "سازمانی",
+    eyebrow: "برای استقرار اختصاصی",
+    monthly: "۶۹۹ هزار",
+    annual: "۵۸۳ هزار",
+    users: "از ۱۰ کاربر",
+    description:
+      "برای سازمانی که داده را روی زیرساخت خودش نگه می‌دارد و راه‌اندازی همراه تیم می‌خواهد.",
+    features: [
+      "همه امکانات پلن رشد",
+      "نصب خصوصی روی سرور سازمان",
+      "مهاجرت داده و اتصال‌های اختصاصی",
+      "آموزش و پشتیبانی اولویت‌دار",
+      "تنظیمات متناسب با فرایند فروش سازمان",
+    ],
+    cta: "درخواست پیشنهاد سازمانی",
+  },
+];
+
 function PricingSection() {
   return (
     <section
@@ -580,42 +648,33 @@ function PricingSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
-            قیمت و خرید
+            قیمت‌گذاری شروع دال
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            قیمت دال بر اساس نیاز واقعی تیم شما مشخص می‌شود.
+            CRM کامل، با قیمتی که تیم ایرانی بتواند سریع شروع کند.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            تعداد کاربران، قابلیت‌های موردنیاز و مسیر استقرار روی قیمت اثر می‌گذارند. قبل از خرید،
-            مسیر مناسب را با شما بررسی می‌کنیم و بعد از خرید، راه‌اندازی اولیه هزینه جداگانه ندارد.
+            قیمت‌ها به‌ازای هر کاربر فعال در ماه محاسبه شده‌اند تا بتوانید بدون قرارداد سنگین شروع
+            کنید و با رشد تیم، هزینه را شفاف بالا ببرید. پرداخت سالانه شامل دو ماه رایگان است.
           </p>
         </div>
-        <div className="mt-10 divide-y border-y border-[#dfe2e6] dark:divide-slate-800 dark:border-slate-800">
-          <PricingItem
-            title="خرید دال"
-            text="متناسب با تعداد کاربران و امکاناتی که تیم شما واقعاً استفاده می‌کند."
-          />
-          <PricingItem
-            title="راه‌اندازی اولیه"
-            text="پس از خرید، نصب و تنظیمات اولیه روی سرور سازمان شما بدون هزینه جداگانه انجام می‌شود."
-          />
-          <PricingItem
-            title="مهاجرت و اتصال‌های ویژه"
-            text="در صورت نیاز به انتقال داده، اتصال اختصاصی یا توسعه جدید، جداگانه برآورد می‌شود."
-          />
-          <PricingItem
-            title="آموزش و پشتیبانی شروع کار"
-            text="برای تنظیم مسیر فروش و شروع استفاده درست از سامانه، همراه تیم شما هستیم."
-          />
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          {PRICING_PLANS.map((plan) => (
+            <PricingPlanCard key={plan.name} plan={plan} />
+          ))}
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <Button asChild className="gap-2 rounded-lg">
-            <a href={`${CRM_URL}/demo`}>
-              دریافت قیمت و مشاوره <ArrowUpLeft className="size-4" />
-            </a>
-          </Button>
-          <p className="text-xs leading-6 text-slate-500 dark:text-slate-400">
-            برای قیمت دقیق، تعداد کاربران و نیاز اصلی‌تان را بفرستید.
+        <div className="mt-8 grid gap-3 border-y border-[#dfe2e6] py-5 text-xs leading-6 text-slate-500 dark:border-slate-800 dark:text-slate-400 sm:grid-cols-3">
+          <p>
+            <span className="font-bold text-[#101827] dark:text-white">نصب اولیه:</span> بعد از
+            خرید، بدون هزینه جداگانه.
+          </p>
+          <p>
+            <span className="font-bold text-[#101827] dark:text-white">قیمت سالانه:</span> معادل دو
+            ماه رایگان در هر پلن.
+          </p>
+          <p>
+            <span className="font-bold text-[#101827] dark:text-white">سازمانی:</span> برای مهاجرت و
+            اتصال ویژه، پیشنهاد دقیق می‌دهیم.
           </p>
         </div>
       </div>
@@ -623,12 +682,57 @@ function PricingSection() {
   );
 }
 
-function PricingItem({ title, text }: { title: string; text: string }) {
+function PricingPlanCard({ plan }: { plan: PricingPlan }) {
   return (
-    <div className="flex flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-      <h3 className="text-sm font-bold text-[#101827] dark:text-white">{title}</h3>
-      <p className="max-w-2xl text-sm leading-7 text-slate-500 dark:text-slate-400">{text}</p>
-    </div>
+    <article
+      className={`relative flex h-full flex-col border p-5 sm:p-6 ${
+        plan.popular
+          ? "border-blue-500 bg-[#f2f6ff] shadow-[0_18px_45px_rgba(37,99,235,0.12)] dark:bg-blue-950/30"
+          : "border-[#dfe2e6] bg-[#fbfaf8] dark:border-slate-800 dark:bg-slate-950/40"
+      }`}
+    >
+      {plan.popular ? (
+        <span className="absolute -top-3 right-5 bg-blue-600 px-3 py-1 text-[10px] font-bold text-white">
+          انتخاب محبوب تیم‌ها
+        </span>
+      ) : null}
+      <p className="text-xs font-bold text-blue-600 dark:text-blue-300">{plan.eyebrow}</p>
+      <div className="mt-4 flex items-end justify-between gap-3">
+        <h3 className="text-2xl font-black text-[#101827] dark:text-white">{plan.name}</h3>
+        <span className="text-[11px] text-slate-500 dark:text-slate-400">{plan.users}</span>
+      </div>
+      <div className="mt-6 border-y border-[#dfe2e6] py-4 dark:border-slate-800">
+        <div className="flex items-baseline gap-2">
+          <span className="text-3xl font-black tracking-tight text-[#101827] dark:text-white">
+            {plan.monthly}
+          </span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">تومان / کاربر / ماه</span>
+        </div>
+        <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
+          پرداخت سالانه: <span className="font-bold">{plan.annual} تومان</span> برای هر کاربر در ماه
+        </p>
+      </div>
+      <p className="mt-5 min-h-14 text-sm leading-7 text-slate-600 dark:text-slate-300">
+        {plan.description}
+      </p>
+      <ul className="mt-5 flex-1 space-y-3 border-t border-[#dfe2e6] pt-5 text-xs leading-6 text-slate-600 dark:border-slate-800 dark:text-slate-300">
+        {plan.features.map((feature) => (
+          <li key={feature} className="flex items-start gap-2">
+            <Check className="mt-1 size-3.5 shrink-0 text-emerald-600" />
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+      <Button
+        asChild
+        className="mt-6 w-full gap-2 rounded-lg"
+        variant={plan.popular ? "default" : "outline"}
+      >
+        <a href={`${CRM_URL}/demo`}>
+          {plan.cta} <ArrowUpLeft className="size-4" />
+        </a>
+      </Button>
+    </article>
   );
 }
 
