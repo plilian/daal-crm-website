@@ -621,7 +621,7 @@ const GROWTH_REFERENCE_USERS = 15;
 const CURRENT_GROWTH_PRICE_AT_REFERENCE_USERS = 6_786_000;
 const GROWTH_PRICE_MULTIPLIER = 1.6;
 const GROWTH_ADDITIONAL_INCREASE_MULTIPLIER = 1.3;
-const MAX_GROWTH_USERS = 50;
+const MAX_MONTHLY_USERS = 50;
 const MONTHLY_GROWTH_PRICE_AT_REFERENCE_USERS =
   CURRENT_GROWTH_PRICE_AT_REFERENCE_USERS *
   GROWTH_PRICE_MULTIPLIER *
@@ -672,7 +672,20 @@ const PRICING_PLANS: PricingPlan[] = [
     priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
     perUser: formatPerUser(MONTHLY_START_PRICE_PER_USER),
-    users: "تا ۵ کاربر",
+    users: "۵ تا ۵۰ کاربر",
+    priceForUsers: (users) =>
+      users <= MAX_MONTHLY_USERS
+        ? formatMillionToman(MONTHLY_START_PRICE_PER_USER * users)
+        : "قیمت سازمانی",
+    priceUnitForUsers: (users) => (users <= MAX_MONTHLY_USERS ? "تومان / ماه" : ""),
+    perUserForUsers: (users) =>
+      users <= MAX_MONTHLY_USERS
+        ? formatPerUser(MONTHLY_START_PRICE_PER_USER)
+        : "بیش از ۵۰ کاربر؛ قیمت‌گذاری سازمانی",
+    usersForUsers: (users) =>
+      users <= MAX_MONTHLY_USERS
+        ? `برای ${formatUserCount(users)} کاربر`
+        : "بیش از ۵۰ کاربر · سازمانی",
     description:
       "برای تیمی که می‌خواهد سرنخ‌ها و پیگیری‌های فروش را از فایل‌ها و پیام‌رسان‌ها جدا کند.",
     features: [
@@ -694,16 +707,16 @@ const PRICING_PLANS: PricingPlan[] = [
     perUser: formatPerUser(MONTHLY_GROWTH_PRICE_PER_USER),
     users: "۵ تا ۵۰ کاربر",
     priceForUsers: (users) =>
-      users <= MAX_GROWTH_USERS
+      users <= MAX_MONTHLY_USERS
         ? formatMillionToman(MONTHLY_GROWTH_PRICE_PER_USER * users)
         : "قیمت سازمانی",
-    priceUnitForUsers: (users) => (users <= MAX_GROWTH_USERS ? "تومان / ماه" : ""),
+    priceUnitForUsers: (users) => (users <= MAX_MONTHLY_USERS ? "تومان / ماه" : ""),
     perUserForUsers: (users) =>
-      users <= MAX_GROWTH_USERS
+      users <= MAX_MONTHLY_USERS
         ? formatPerUser(MONTHLY_GROWTH_PRICE_PER_USER)
         : "بیش از ۵۰ کاربر؛ قیمت‌گذاری سازمانی",
     usersForUsers: (users) =>
-      users <= MAX_GROWTH_USERS
+      users <= MAX_MONTHLY_USERS
         ? `برای ${formatUserCount(users)} کاربر`
         : "بیش از ۵۰ کاربر · سازمانی",
     description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش‌های دقیق‌تر جلو ببرد.",
@@ -745,8 +758,8 @@ const PRICING_PLANS: PricingPlan[] = [
     price: formatMillionToman(LIFETIME_LICENSE_PRICE),
     priceUnit: "تومان",
     priceLabel: "لایسنس دائمی",
-    perUser: "هزینهٔ یک‌باره؛ تعداد کاربران طبق قرارداد",
-    users: "تعداد کاربر توافقی",
+    perUser: "هزینهٔ یک‌باره برای ۲۰ کاربر",
+    users: "۲۰ کاربر",
     description:
       "برای سازمانی که ترجیح می‌دهد هزینهٔ لایسنس را یک‌بار پرداخت کند و بدون تمدید ماهانه از نسخهٔ خریداری‌شده استفاده کند.",
     features: [
@@ -779,11 +792,11 @@ function PricingSection() {
             CRM کامل، با لایسنس ماهانه یا خرید دائمی روی سرور خودتان.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            برای اجرای DaalCRM روی زیرساخت خودتان، یا لایسنس ماهانه را بر اساس ظرفیت تیم انتخاب
-            می‌کنید یا با پرداخت یک‌بارهٔ ۲۴۹ میلیون تومان، لایسنس دائمی می‌خرید. داده‌ها روی سرور
-            شما می‌مانند؛ هزینهٔ سرور و سرویس‌های بیرونی با سازمان شماست. خرید دائمی شامل سه ماه
-            پشتیبانی است و پس از آن تمدید پشتیبانی اختیاری و جداگانه خواهد بود؛ در مدل ماهانه، با
-            توقف پرداخت حق استفاده از نرم‌افزار ادامه پیدا نمی‌کند.
+            برای اجرای DaalCRM روی زیرساخت خودتان، یکی از دو لایسنس ماهانه را بر اساس تعداد کاربران
+            انتخاب می‌کنید یا با پرداخت یک‌بارهٔ ۲۴۹ میلیون تومان، لایسنس دائمی ۲۰ کاربره می‌خرید.
+            داده‌ها روی سرور شما می‌مانند؛ هزینهٔ سرور و سرویس‌های بیرونی با سازمان شماست. خرید
+            دائمی شامل سه ماه پشتیبانی است و پس از آن تمدید پشتیبانی اختیاری و جداگانه خواهد بود؛ در
+            مدل ماهانه، با توقف پرداخت حق استفاده از نرم‌افزار ادامه پیدا نمی‌کند.
           </p>
         </div>
         <div className="mt-8 flex flex-col gap-4 border-y border-[#dfe2e6] py-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
@@ -795,7 +808,7 @@ function PricingSection() {
               تعداد کاربران
             </label>
             <p className="mt-1 text-xs leading-6 text-slate-500 dark:text-slate-400">
-              تعداد کاربران تیم را انتخاب کنید تا قیمت پلن رشد نمایش داده شود.
+              تعداد کاربران تیم را انتخاب کنید تا قیمت هر دو پلن ماهانه نمایش داده شود.
             </p>
           </div>
           <div className="flex min-w-0 flex-1 items-center gap-3 sm:max-w-xl">
