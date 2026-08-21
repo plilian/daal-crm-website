@@ -16,7 +16,9 @@ import {
   Check,
   CheckCircle2,
   CircleDollarSign,
+  Calculator,
   ClipboardCheck,
+  CreditCard,
   FileText,
   ListTodo,
   Mail,
@@ -117,11 +119,11 @@ const FEATURES: Feature[] = [
     eyebrow: "پیش‌فاکتور، پرداخت و گزارش",
     title: "فروش را تا دریافت وجه دنبال کنید.",
     summary:
-      "پیش‌فاکتور، پرداخت، مانده دریافتنی و گزارش فروش را به پرونده مشتری و معامله وصل کنید.",
+      "پیش‌فاکتور، پرداخت، مانده دریافتنی و گزارش فروش را به پرونده مشتری و معامله وصل کنید؛ لینک پرداخت زرین‌پال بسازید و مخاطبان را به حسابفا بفرستید.",
     bullets: [
       "صدور پیش‌فاکتور و ثبت پرداخت",
-      "پیگیری مانده دریافتنی مشتریان",
-      "گزارش فروش، درآمد و عملکرد تیم",
+      "ساخت لینک پرداخت زرین‌پال",
+      "همگام‌سازی مخاطب با حسابفا",
     ],
     icon: CircleDollarSign,
   },
@@ -600,6 +602,7 @@ const PRICING_PLANS: PricingPlan[] = [
       "معاملات و قیف فروش",
       "پیگیری‌ها و داشبورد فروش",
       "پیش‌فاکتور و ثبت پرداخت",
+      "اتصال حسابفا و زرین‌پال",
     ],
     cta: "اول دمو را ببینید",
   },
@@ -1061,6 +1064,8 @@ function IntelligencePreview() {
         <div className="divide-y border-y border-slate-200 dark:divide-slate-700 dark:border-slate-700">
           <IntegrationRow icon={Mail} label="SMTP / ایمیل" status="متصل" />
           <IntegrationRow icon={MessageSquare} label="پیامک" status="قابل اتصال" />
+          <IntegrationRow icon={Calculator} label="حسابفا · حسابداری" status="قابل اتصال" />
+          <IntegrationRow icon={CreditCard} label="زرین‌پال · درگاه پرداخت" status="قابل اتصال" />
           <IntegrationRow icon={Plug} label="OpenAI / هوش مصنوعی محلی" status="قابل اتصال" />
         </div>
         <div className="border-s border-blue-500 ps-4">
