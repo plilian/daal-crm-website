@@ -540,7 +540,7 @@ function AudienceSection() {
 
 function AudienceItem({ number, title, text }: { number: string; title: string; text: string }) {
   return (
-    <article className="py-6 first:pt-0 last:pb-0 md:px-7 md:py-7 md:first:ps-0 md:last:pe-0">
+    <article className="py-6 md:px-7 md:py-7 md:first:ps-0 md:last:pe-0">
       <p className="text-xs font-bold text-blue-600 dark:text-blue-300">{number}</p>
       <h3 className="mt-5 text-base font-bold text-[#101827] dark:text-white">{title}</h3>
       <p className="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">{text}</p>
@@ -606,7 +606,7 @@ function DeploymentSection() {
 
 function DeploymentItem({ number, title, text }: { number: string; title: string; text: string }) {
   return (
-    <article className="py-6 first:pt-0 last:pb-0 md:px-6 md:py-7 md:first:ps-0 md:last:pe-0">
+    <article className="py-6 md:px-6 md:py-7 md:first:ps-0 md:last:pe-0">
       <p className="text-xs font-bold text-blue-600 dark:text-blue-300">{number}</p>
       <h3 className="mt-5 text-base font-bold text-[#101827] dark:text-white">{title}</h3>
       <p className="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">{text}</p>
