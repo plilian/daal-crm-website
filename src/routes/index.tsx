@@ -619,6 +619,7 @@ type PricingPlan = {
   eyebrow: string;
   price: string;
   priceLabel: string;
+  perUser: string;
   users: string;
   description: string;
   features: string[];
@@ -631,8 +632,9 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "شروع",
     eyebrow: "برای تیم‌های کوچک",
-    price: "۱٫۹ میلیون",
+    price: "۲٫۲۸ میلیون",
     priceLabel: "لایسنس ماهانه",
+    perUser: "معادل ۴۵۶ هزار تومان برای هر کاربر",
     users: "تا ۵ کاربر",
     description:
       "برای تیمی که می‌خواهد سرنخ‌ها و پیگیری‌های فروش را از فایل‌ها و پیام‌رسان‌ها جدا کند.",
@@ -649,8 +651,9 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "رشد",
     eyebrow: "برای تیم‌های فروش در حال رشد",
-    price: "۳٫۹ میلیون",
+    price: "۴٫۶۸ میلیون",
     priceLabel: "لایسنس ماهانه",
+    perUser: "معادل ۳۱۲ هزار تومان برای هر کاربر",
     users: "تا ۱۵ کاربر",
     description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش‌های دقیق‌تر جلو ببرد.",
     features: [
@@ -667,8 +670,9 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "سازمانی",
     eyebrow: "برای استقرار اختصاصی",
-    price: "از ۸٫۹ میلیون",
+    price: "از ۱۰٫۶۸ میلیون",
     priceLabel: "لایسنس ماهانه",
+    perUser: "قیمت هر کاربر پس از برآورد سازمانی",
     users: "تعداد کاربر سفارشی",
     description:
       "برای سازمانی که اتصال‌های اختصاصی، فرایندهای سفارشی و هماهنگی مستقیم برای استقرار می‌خواهد.",
@@ -773,6 +777,9 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
         </div>
         <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
           {plan.priceLabel} · نصب اولیه بدون هزینهٔ جداگانه
+        </p>
+        <p className="mt-1 text-[11px] font-semibold text-blue-700 dark:text-blue-300">
+          ({plan.perUser})
         </p>
       </div>
       <p className="mt-5 min-h-14 text-sm leading-7 text-slate-600 dark:text-slate-300">
