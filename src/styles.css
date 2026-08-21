@@ -1,0 +1,465 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DaalCRM — سامانه عمومی عملیاتی فروش و ارتباط با مشتری
+ * هویت از وضوح، فاصله و تایپ می‌آید — نه تزئینات اضافه.
+ * ~۸۰٪ خنثی · ۱۰٪ تایپ · ۵٪ برند · ۵٪ معنایی
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-teal: var(--teal);
+  --color-teal-foreground: var(--teal-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: Vazirmatn, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  /* کارت ~۱۶px · ورودی ~۱۱px · بج ~۷px */
+  --radius: 1rem;
+
+  /* Semantic aliases (master plan) */
+  --bg-app: #f6f8fb;
+  --bg-surface: #ffffff;
+  --bg-subtle: #eef3f8;
+  --border-default: #dfe6ef;
+  --border-strong: #c8d4e2;
+  --text-primary: #162235;
+  --text-secondary: #53637a;
+  --text-muted: #7f8ea3;
+  --brand: #2563eb;
+  --brand-hover: #1d4ed8;
+  --brand-soft: #e8efff;
+  --success-soft: #eaf7ef;
+  --warning-soft: #fff5e6;
+  --info-soft: #e7f3ff;
+
+  --background: var(--bg-app);
+  --foreground: var(--text-primary);
+
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+
+  --popover: var(--bg-surface);
+  --popover-foreground: var(--text-primary);
+
+  --primary: var(--brand);
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--bg-subtle);
+  --secondary-foreground: var(--text-primary);
+
+  --muted: #f3f6fa;
+  --muted-foreground: var(--text-secondary);
+
+  --accent: var(--brand-soft);
+  --accent-foreground: var(--brand-hover);
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --success: #15803d;
+  --success-foreground: #ffffff;
+
+  --warning: #d97706;
+  --warning-foreground: #1f2937;
+
+  --info: #0284c7;
+  --info-foreground: #ffffff;
+
+  --teal: #0f766e;
+  --teal-foreground: #ffffff;
+
+  --border: var(--border-default);
+  --input: var(--border-default);
+  --ring: var(--brand);
+
+  /* chart-1 برند · chart-2 آبی اطلاعات · chart-3 تیل · chart-4 هشدار · chart-5 خنثی */
+  --chart-1: var(--brand);
+  --chart-2: var(--info);
+  --chart-3: var(--teal);
+  --chart-4: var(--warning);
+  --chart-5: #7f8ea3;
+
+  --sidebar: var(--bg-surface);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--brand-soft);
+  --sidebar-accent-foreground: var(--brand-hover);
+  --sidebar-border: var(--border-default);
+  --sidebar-ring: var(--brand);
+
+  --gradient-hero: linear-gradient(180deg, var(--bg-subtle), var(--bg-app));
+  --gradient-primary: linear-gradient(135deg, var(--brand), var(--brand-hover));
+  --gradient-bar: linear-gradient(90deg, color-mix(in srgb, var(--brand) 55%, white), var(--brand));
+  --shadow-soft: 0 8px 24px -16px rgb(15 23 42 / 0.16);
+  --shadow-glow: 0 0 0 1px color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg-app: #0b1220;
+  --bg-surface: #111c2f;
+  --bg-elevated: #16243b;
+  --bg-subtle: #1b2a43;
+  --border-default: #2b3a55;
+  --border-strong: #3b4d6b;
+  --text-primary: #e6eef9;
+  --text-secondary: #a9b8cc;
+  --text-muted: #7d8da5;
+  --brand: #60a5fa;
+  --brand-hover: #93c5fd;
+  --brand-soft: rgb(96 165 250 / 0.16);
+  --success-soft: rgb(21 128 61 / 0.22);
+  --warning-soft: rgb(217 119 6 / 0.2);
+  --info-soft: rgb(2 132 199 / 0.2);
+
+  --background: var(--bg-app);
+  --foreground: var(--text-primary);
+
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+
+  --popover: var(--bg-elevated);
+  --popover-foreground: var(--text-primary);
+
+  --primary: var(--brand);
+  --primary-foreground: #08111f;
+
+  --secondary: var(--bg-subtle);
+  --secondary-foreground: var(--text-primary);
+
+  --muted: var(--bg-subtle);
+  --muted-foreground: var(--text-secondary);
+
+  --accent: var(--brand-soft);
+  --accent-foreground: #bfdbfe;
+
+  --destructive: #f87171;
+  --destructive-foreground: #08111f;
+
+  --success: #4ade80;
+  --success-foreground: #08111f;
+
+  --warning: #fbbf24;
+  --warning-foreground: #08111f;
+
+  --info: #38bdf8;
+  --info-foreground: #08111f;
+
+  --teal: #2dd4bf;
+  --teal-foreground: #08111f;
+
+  --border: var(--border-default);
+  --input: var(--border-strong);
+  --ring: var(--brand);
+
+  --chart-1: var(--brand);
+  --chart-2: var(--info);
+  --chart-3: var(--teal);
+  --chart-4: var(--warning);
+  --chart-5: #94a3b8;
+
+  --sidebar: #0a101c;
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: #27150f;
+  --sidebar-accent: var(--brand-soft);
+  --sidebar-accent-foreground: #bfdbfe;
+  --sidebar-border: var(--border-default);
+  --sidebar-ring: var(--brand);
+
+  --gradient-hero: linear-gradient(180deg, var(--bg-subtle), var(--bg-app));
+  --gradient-primary: linear-gradient(135deg, var(--brand), var(--brand-hover));
+  --gradient-bar: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--brand) 40%, transparent),
+    var(--brand)
+  );
+  --shadow-soft: 0 12px 32px -20px rgb(0 0 0 / 0.55);
+  --shadow-glow: 0 0 0 1px color-mix(in srgb, var(--brand) 22%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem; /* ۱۵px بدنه */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility surface-panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+@utility gradient-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+@utility glow-ring {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility brand-mark {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+@utility text-display {
+  font-size: clamp(1.75rem, 1.5rem + 0.6vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+@utility text-section {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@utility text-kpi {
+  font-size: clamp(1.75rem, 1.5rem + 0.8vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* صفحه ورود — خنثی و مستقل از صنعت یا برند خاص */
+@utility auth-canvas {
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 100% 0%,
+      color-mix(in srgb, var(--brand) 8%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(180deg, var(--bg-subtle), var(--bg-app));
+}
+
+.dark .auth-canvas {
+  background-image:
+    radial-gradient(
+      ellipse 70% 50% at 100% 100%,
+      color-mix(in srgb, var(--brand) 12%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(180deg, var(--bg-subtle), var(--bg-app));
+}
+
+/* ── تقویم جلالی (react-multi-date-picker) ────────────────────── */
+.rmdp-container {
+  display: inline-flex;
+  width: 100%;
+  direction: rtl;
+}
+
+.rmdp-wrapper,
+.rmdp-calendar,
+.rmdp-panel-container {
+  direction: rtl;
+  font-family: var(--font-sans);
+}
+
+.rmdp-input {
+  height: 2.5rem;
+  width: 100%;
+  border: 1px solid var(--color-input);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  padding: 0 0.75rem;
+  text-align: right;
+}
+
+.rmdp-input:focus-visible {
+  outline: none;
+  border-color: var(--color-ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 22%, transparent);
+}
+
+.rmdp-calendar {
+  background-color: var(--color-popover) !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  color: var(--color-popover-foreground);
+}
+
+.rmdp-week-day {
+  color: var(--color-muted-foreground) !important;
+  font-weight: 500;
+}
+
+.rmdp-day span {
+  color: var(--color-popover-foreground);
+  font-family: var(--font-sans);
+}
+
+.rmdp-day:not(.rmdp-day-hidden) span:hover {
+  background-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.rmdp-day.rmdp-today span {
+  background-color: var(--color-muted);
+  color: var(--color-foreground);
+}
+
+.rmdp-day.rmdp-selected span,
+.rmdp-day.rmdp-range-start span,
+.rmdp-day.rmdp-range-end span {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  box-shadow: none;
+}
+
+.rmdp-header-values {
+  color: var(--color-foreground) !important;
+  font-family: var(--font-sans);
+}
+
+.rmdp-header-values span,
+.rmdp-header-values button,
+.rmdp-header .rmdp-header-values * {
+  color: var(--color-foreground) !important;
+  background: transparent !important;
+}
+
+.rmdp-arrow {
+  border-color: var(--color-foreground) !important;
+}
+
+.rmdp-arrow-container {
+  background: transparent !important;
+}
+
+.rmdp-arrow-container:hover {
+  background-color: var(--color-accent) !important;
+  box-shadow: none;
+}
+
+.rmdp-month-picker,
+.rmdp-year-picker,
+.rmdp-time-picker,
+.rmdp-only-month-picker,
+.rmdp-only-year-picker {
+  background-color: var(--color-popover) !important;
+  color: var(--color-popover-foreground) !important;
+  border-color: var(--color-border) !important;
+}
+
+.rmdp-month-picker .rmdp-day span,
+.rmdp-year-picker .rmdp-day span,
+.rmdp-ym .rmdp-day span {
+  color: var(--color-popover-foreground) !important;
+  background: transparent !important;
+}
+
+.rmdp-month-picker .rmdp-day.rmdp-selected span,
+.rmdp-year-picker .rmdp-day.rmdp-selected span,
+.rmdp-ym .rmdp-day.rmdp-selected span {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+}
+
+.rmdp-day.rmdp-disabled span {
+  color: var(--color-muted-foreground) !important;
+  opacity: 0.45;
+}
+
+.rmdp-time-picker div input,
+.rmdp-time-picker span {
+  color: var(--color-foreground) !important;
+  background: transparent !important;
+}
+
+/* Sidebar: always-visible thin scrollbar so lower sections stay discoverable */
+.sidebar-nav {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-muted-foreground) 45%, transparent) transparent;
+}
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-muted-foreground) 40%, transparent);
+  border-radius: 999px;
+}
