@@ -35,15 +35,16 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "سامانه مدیریت مشتریان دال | CRM فارسی فروش" },
+      { title: "سامانه مدیریت مشتریان دال | CRM فارسی برای فروش" },
       {
         name: "description",
         content:
-          "سامانه مدیریت مشتریان دال برای مدیریت سرنخ، فروش، پیگیری، فاکتور و گزارش؛ دموی تعاملی را ببینید و درباره خرید و راه‌اندازی روی زیرساخت خودتان مشاوره بگیرید.",
+          "سامانه مدیریت مشتریان دال برای مدیریت سرنخ، معاملات، پیگیری، پیش‌فاکتور، پرداخت و گزارش؛ دموی واقعی را ببینید و دال را روی سرور خودتان مستقر کنید.",
       },
       ...publicSocialMeta({
-        title: "سامانه مدیریت مشتریان دال | CRM فارسی فروش",
-        description: "سرنخ‌ها، معاملات، پیگیری‌ها، اتوماسیون و درآمد را در یک مسیر فروش ببینید.",
+        title: "سامانه مدیریت مشتریان دال | CRM فارسی برای فروش",
+        description:
+          "سرنخ‌ها، معاملات، پیگیری‌ها و پرداخت‌ها را در یک جریان فروش روشن مدیریت کنید.",
         pathname: "/",
       }),
     ],
@@ -71,14 +72,14 @@ const FEATURES: Feature[] = [
   {
     id: "leads",
     number: "۰۱",
-    eyebrow: "سرنخ، مخاطب و شرکت",
-    title: "هر ارتباط را با سابقه‌ی خودش نگه دارید.",
+    eyebrow: "مدیریت سرنخ و پرونده مشتری",
+    title: "از اولین تماس، اطلاعات رابطه را یک‌جا نگه دارید.",
     summary:
-      "اطلاعات مخاطب، شرکت، منبع سرنخ و سابقه تعامل در یک پرونده کنار هم می‌ماند؛ نه در چند فایل و پیام‌رسان مختلف.",
+      "سرنخ، مخاطب و شرکت در پرونده‌های مرتبط کنار هم قرار می‌گیرند تا تیم فروش همیشه سابقه و زمینه هر رابطه را بداند.",
     bullets: [
-      "ثبت و اولویت‌بندی سرنخ‌های ورودی",
-      "مدیریت مخاطبین و شرکت‌ها",
-      "جست‌وجوی سریع در کل داده‌های فروش",
+      "ثبت سرنخ با منبع و وضعیت",
+      "ارتباط مخاطب و شرکت با سابقه تعامل",
+      "جست‌وجو و فیلتر در داده‌های فروش",
     ],
     icon: Users,
   },
@@ -86,12 +87,12 @@ const FEATURES: Feature[] = [
     id: "pipeline",
     number: "۰۲",
     eyebrow: "معاملات و قیف فروش",
-    title: "از اولین تماس تا بستن قرارداد، مسیر را ببینید.",
+    title: "برای هر معامله، مرحله و قدم بعدی معلوم است.",
     summary:
-      "هر معامله با مرحله، مبلغ، احتمال و تاریخ بستن مشخص است تا تیم بداند چه چیزی جلو رفته و چه چیزی گیر کرده است.",
+      "معامله‌ها را در قیف فروش ببینید، بین مراحل جابه‌جا کنید و بدانید کدام فرصت به پیگیری نیاز دارد.",
     bullets: [
       "نمای کانبان برای مراحل فروش",
-      "مبلغ و احتمال هر معامله",
+      "مبلغ، احتمال و تاریخ بستن معامله",
       "قدم بعدی روشن برای هر فرصت",
     ],
     icon: Target,
@@ -100,13 +101,13 @@ const FEATURES: Feature[] = [
     id: "followups",
     number: "۰۳",
     eyebrow: "پیگیری، کمپین و اتوماسیون",
-    title: "هیچ سرنخی بین دو پیگیری گم نمی‌شود.",
+    title: "کاری که باید انجام شود، به زمان و مسئول وصل است.",
     summary:
-      "کارهای روزانه، کمپین‌های ارتباطی و قواعد اتوماسیون در یک جریان قابل‌پیگیری به هم وصل می‌شوند.",
+      "فعالیت‌های روزانه، کمپین‌های ارتباطی و قواعد خودکارسازی کمک می‌کنند هیچ فرصت فروشی بین دو تماس رها نشود.",
     bullets: [
-      "تقویم و وضعیت پیگیری‌ها",
+      "تقویم فعالیت و پیگیری",
       "کمپین‌های پیامکی و ایمیلی",
-      "اجرای خودکار کارها بعد از رویدادها",
+      "ساخت خودکار پیگیری و ارسال پیام",
     ],
     icon: Workflow,
   },
@@ -114,27 +115,27 @@ const FEATURES: Feature[] = [
     id: "billing",
     number: "۰۴",
     eyebrow: "پیش‌فاکتور، پرداخت و گزارش",
-    title: "فروش را تا دریافت وجه دنبال کنید.",
+    title: "فروش فقط تا صدور پیش‌فاکتور تمام نمی‌شود.",
     summary:
-      "پیش‌فاکتور، پرداخت‌ها، مانده حساب و گزارش فروش را از همان پرونده مشتری و معامله مدیریت کنید.",
+      "پیش‌فاکتور، پرداخت، مانده دریافتنی و گزارش فروش را به پرونده مشتری و معامله وصل کنید.",
     bullets: [
       "صدور پیش‌فاکتور و ثبت پرداخت",
-      "پیگیری مانده حساب مشتریان",
-      "گزارش درآمد، قیف و عملکرد تیم",
+      "پیگیری مانده دریافتنی مشتریان",
+      "گزارش فروش، درآمد و عملکرد تیم",
     ],
     icon: CircleDollarSign,
   },
   {
     id: "intelligence",
     number: "۰۵",
-    eyebrow: "هوشمندسازی و اتصال‌ها",
-    title: "ابزارهای تیم را به جریان فروش وصل کنید.",
+    eyebrow: "چت با داده‌ها و اتصال‌ها",
+    title: "اطلاعات CRM را به سؤال و اقدام تبدیل کنید.",
     summary:
-      "از چت و ایجنت‌های AI تا SMS، ایمیل، تلفن و اتصال‌های سازگار با OpenAI؛ هر تیم مسیر خودش را تنظیم می‌کند.",
+      "دال به پیامک، ایمیل، تلفن و سرویس‌های هوش مصنوعی متصل می‌شود تا داده‌های فروش فقط ذخیره نشوند و به تصمیم بعدی کمک کنند.",
     bullets: [
-      "چت با داده‌های CRM و ایجنت‌های AI",
-      "اتصال SMS، SMTP و Asterisk",
-      "پشتیبانی از OpenAI، Gemini و Local AI",
+      "چت با داده‌های CRM",
+      "ساخت ایجنت‌های هوش مصنوعی",
+      "اتصال SMS، SMTP، Asterisk و مدل‌های AI",
     ],
     icon: Bot,
   },
@@ -149,7 +150,7 @@ const DEMO_DEALS = [
     probability: 60,
   },
   {
-    title: "اشتراک سالانه تیم فروش",
+    title: "پیاده‌سازی سامانه فروش",
     company: "راهکار نو",
     amount: 148_000_000,
     stage: "مذاکره",
@@ -166,7 +167,7 @@ const DEMO_DEALS = [
 
 const DEMO_ACTIVITIES = [
   { title: "تماس با سارا محمدی", meta: "راهکار نو · امروز، ۱۰:۳۰" },
-  { title: "ارسال پیشنهاد نسخه سازمانی", meta: "پیشگامان شرق · امروز، ۱۴:۰۰" },
+  { title: "ارسال پیشنهاد استقرار", meta: "پیشگامان شرق · امروز، ۱۴:۰۰" },
   { title: "جلسه کشف نیاز", meta: "ابرنگار · فردا، ۰۹:۰۰" },
 ];
 
@@ -209,7 +210,7 @@ function DemoPage() {
               href="#setup"
               className="transition-colors hover:text-slate-950 dark:hover:text-white"
             >
-              خرید و راه‌اندازی
+              خرید و استقرار
             </a>
             <a
               href="#pricing"
@@ -221,14 +222,14 @@ function DemoPage() {
               سؤالات متداول
             </a>
             <a href={`${CRM_URL}/demo`} className="font-semibold text-blue-600 hover:text-blue-700">
-              مشاوره خرید
+              دیدن دموی واقعی
             </a>
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button asChild size="sm" className="hidden gap-1.5 rounded-lg sm:inline-flex">
               <a href={`${CRM_URL}/demo`}>
-                مشاوره خرید <ArrowUpLeft className="size-3.5" />
+                دیدن دموی واقعی <ArrowUpLeft className="size-3.5" />
               </a>
             </Button>
           </div>
@@ -240,16 +241,16 @@ function DemoPage() {
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16 lg:py-24">
             <div className="order-1 max-w-xl lg:order-1">
               <h1 className="max-w-lg text-4xl font-black leading-[1.22] tracking-tight text-[#101827] dark:text-white sm:text-5xl">
-                از اولین سرنخ تا دریافت وجه، فروش را در یک مسیر ببینید.
+                فروش را از سرنخ تا دریافت وجه، منظم و قابل پیگیری کنید.
               </h1>
               <p className="mt-6 max-w-md text-base leading-8 text-slate-600 dark:text-slate-300">
-                دال اطلاعات مشتری، معامله، پیگیری، فاکتور و گزارش را کنار هم می‌نشاند تا تیم فروش
-                بداند امروز چه کاری بیشترین اثر را دارد.
+                سامانه مدیریت مشتریان دال سرنخ‌ها، معاملات، پیگیری‌ها، پیش‌فاکتورها، پرداخت‌ها و
+                گزارش‌ها را در یک جریان کاری روشن کنار هم می‌آورد؛ روی سرور خودتان.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="gap-2 rounded-lg px-5">
                   <a href="#features">
-                    دیدن قابلیت‌ها <ArrowLeft className="size-4" />
+                    آشنایی با قابلیت‌ها <ArrowLeft className="size-4" />
                   </a>
                 </Button>
                 <Button
@@ -258,18 +259,18 @@ function DemoPage() {
                   variant="outline"
                   className="rounded-lg border-[#cbd1da] bg-transparent px-5"
                 >
-                  <a href={`${CRM_URL}/demo`}>مشاهده CRM با داده نمونه</a>
+                  <a href={`${CRM_URL}/demo`}>مشاهده دموی واقعی</a>
                 </Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[11px] text-slate-500 dark:text-slate-400">
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="size-3.5 text-emerald-600" /> راه‌اندازی اولیه پس از خرید
+                  <CheckCircle2 className="size-3.5 text-emerald-600" /> دمو با داده‌های نمونه
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <ShieldDot /> داده‌ها روی زیرساخت شما
+                  <ShieldDot /> نصب روی سرور سازمان
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300">
-                  <CircleDollarSign className="size-3.5" /> لایسنس سالانه از ۱۹٫۹ میلیون تومان
+                  <CircleDollarSign className="size-3.5" /> لایسنس سالانه بر اساس ظرفیت تیم
                 </span>
               </div>
             </div>
@@ -281,11 +282,11 @@ function DemoPage() {
 
         <section className="border-b border-[#dfe2e6] bg-white dark:border-slate-800 dark:bg-slate-900/40">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-7 gap-y-3 px-5 py-5 sm:px-8">
-            <Capability icon={Users} label="سرنخ و مخاطب" />
+            <Capability icon={Users} label="سرنخ و پرونده مشتری" />
             <Capability icon={Target} label="قیف و معاملات" />
-            <Capability icon={CalendarCheck} label="پیگیری و کمپین" />
-            <Capability icon={ReceiptText} label="فاکتور و درآمد" />
-            <Capability icon={Plug} label="هوشمندسازی و اتصال‌ها" />
+            <Capability icon={CalendarCheck} label="پیگیری و خودکارسازی" />
+            <Capability icon={ReceiptText} label="پیش‌فاکتور و پرداخت" />
+            <Capability icon={Plug} label="چت و اتصال‌های هوشمند" />
           </div>
         </section>
 
@@ -296,14 +297,14 @@ function DemoPage() {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
-                قابلیت‌های واقعی دال
+                قابلیت‌های واقعی محصول
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-                فروش را از اولین تماس تا دریافت وجه مدیریت کنید.
+                هر چیزی که تیم فروش برای جلو بردن معامله لازم دارد، یک‌جا.
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-                سرنخ، مخاطب، شرکت، معامله، پیگیری، فاکتور، پرداخت، گزارش و اتصال‌های تیم را در یک
-                مسیر منظم کنار هم داشته باشید.
+                این‌ها قابلیت‌های واقعی سامانه‌اند؛ در دموی عمومی، صفحه‌های واقعی همین بخش‌ها را با
+                داده‌های نمونه می‌بینید.
               </p>
             </div>
 
@@ -380,15 +381,15 @@ function DemoPage() {
             <div className="flex flex-col justify-between gap-6 border-b border-white/15 pb-10 sm:flex-row sm:items-end">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-300">
-                  جریان کاری دال
+                  جریان کاری فروش
                 </p>
                 <h2 className="mt-4 max-w-2xl text-3xl font-black leading-tight tracking-tight sm:text-4xl">
-                  همه‌چیز به قدم بعدی وصل می‌شود.
+                  هر سرنخ باید به یک اقدام بعدی برسد.
                 </h2>
               </div>
               <p className="max-w-sm text-sm leading-7 text-slate-300">
-                اطلاعات فقط ذخیره نمی‌شوند؛ به تصمیم، پیگیری و نتیجه‌ی قابل‌اندازه‌گیری تبدیل
-                می‌شوند.
+                دال اطلاعات را از یک پرونده ساده به مسیر مشخص فروش، پیگیری و دریافت وجه تبدیل
+                می‌کند.
               </p>
             </div>
             <div className="grid divide-y divide-white/15 pt-2 sm:grid-cols-4 sm:divide-x sm:divide-y-0 sm:rtl:divide-x-reverse">
@@ -396,25 +397,25 @@ function DemoPage() {
                 number="۰۱"
                 icon={Users}
                 title="ورود سرنخ"
-                text="منبع، مخاطب و شرکت را ثبت کنید."
+                text="منبع و مشخصات اولیه را ثبت کنید."
               />
               <WorkflowStep
                 number="۰۲"
                 icon={Target}
                 title="حرکت معامله"
-                text="مرحله، مبلغ و احتمال را ببینید."
+                text="مرحله، مبلغ و احتمال موفقیت را ببینید."
               />
               <WorkflowStep
                 number="۰۳"
                 icon={ClipboardCheck}
                 title="پیگیری تیم"
-                text="قدم بعدی را به مسئول و زمان وصل کنید."
+                text="کار بعدی را به مسئول و زمان وصل کنید."
               />
               <WorkflowStep
                 number="۰۴"
                 icon={CircleDollarSign}
-                title="نتیجه و درآمد"
-                text="فاکتور، پرداخت و گزارش را دنبال کنید."
+                title="نتیجه فروش"
+                text="پیش‌فاکتور، پرداخت و گزارش را دنبال کنید."
               />
             </div>
           </div>
@@ -429,19 +430,19 @@ function DemoPage() {
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
-                خرید و راه‌اندازی
+                مشاهده و خرید
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-                دال را برای جریان فروش خودتان راه‌اندازی کنید.
+                اول ببینید؛ بعد درباره استقرار تصمیم بگیرید.
               </h2>
               <p className="mt-4 max-w-xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-                دموی عمومی را ببینید. اگر دال برای تیم شما مناسب بود، درباره خرید، نصب روی سرور
-                خودتان و پشتیبانی شروع کار با ما صحبت کنید.
+                فرم کوتاه را پر کنید و وارد همان محیط واقعی CRM شوید. بعد از دیدن قابلیت‌ها، درباره
+                لایسنس، نصب و شروع کار با تیم ما صحبت کنید.
               </p>
             </div>
             <Button asChild size="lg" className="shrink-0 gap-2 rounded-lg px-5">
               <a href={`${CRM_URL}/demo`}>
-                مشاوره خرید و راه‌اندازی <ArrowUpLeft className="size-4" />
+                مشاهده دموی واقعی <ArrowUpLeft className="size-4" />
               </a>
             </Button>
           </div>
@@ -469,28 +470,28 @@ function AudienceSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <h2 className="text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            وقتی اطلاعات فروش پراکنده است، دال آن را به یک مسیر روشن تبدیل می‌کند.
+            وقتی اطلاعات فروش پراکنده است، تیم نمی‌داند قدم بعدی چیست.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            دال برای تیم‌هایی ساخته شده که می‌خواهند از فایل‌های پراکنده، پیام‌های گم‌شده و
-            پیگیری‌های شفاهی فاصله بگیرند و بدانند هر مشتری در چه مرحله‌ای است و قدم بعدی چیست.
+            دال برای تیم‌هایی ساخته شده که می‌خواهند وضعیت هر مشتری، معامله و پیگیری را در یک نمای
+            روشن ببینند و تصمیم بعدی را به‌موقع بگیرند.
           </p>
         </div>
         <div className="mt-12 grid divide-y border-y border-[#dfe2e6] dark:divide-slate-800 dark:border-slate-800 md:grid-cols-3 md:divide-x md:divide-y-0 md:rtl:divide-x-reverse">
           <AudienceItem
             number="۰۱"
             title="تیم‌های فروش B2B"
-            text="سرنخ، شرکت، مخاطب، معامله و احتمال بستن قرارداد را در یک پرونده دنبال کنید."
+            text="سرنخ‌ها، تصمیم‌گیرندگان، آخرین تماس و قدم بعدی هر معامله را یک‌جا ببینید."
           />
           <AudienceItem
             number="۰۲"
             title="شرکت‌های خدماتی و پروژه‌ای"
-            text="از اولین درخواست تا پیشنهاد، پرداخت و مانده حساب، سابقه رابطه را کنار فروش نگه دارید."
+            text="از کشف نیاز تا پیشنهاد، قرارداد، پیش‌فاکتور و پرداخت، مسیر رابطه را ثبت کنید."
           />
           <AudienceItem
             number="۰۳"
-            title="تیم‌های در حال نظم‌دادن به فروش"
-            text="پیگیری‌های روزانه، کمپین‌ها و اتوماسیون‌ها را به مسئول، زمان و نتیجه وصل کنید."
+            title="سازمان‌های حساس به داده"
+            text="دال را روی سرور خودتان نصب کنید و دسترسی، داده و اتصال‌های سازمان را خودتان کنترل کنید."
           />
         </div>
       </div>
@@ -517,46 +518,46 @@ function DeploymentSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
-            مدل همکاری دال
+            خرید و استقرار
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            محصول را می‌خرید؛ داده و زیرساخت نزد خودتان می‌ماند.
+            دال روی سرور شما اجرا می‌شود؛ داده‌های مشتری برای خودتان می‌ماند.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            دال برای سازمان‌هایی ساخته شده که می‌خواهند CRM را روی سرور خودشان داشته باشند. بعد از
-            خرید، راه‌اندازی اولیه و شروع کار را همراه تیم شما پیش می‌بریم.
+            دال سرویس ابری نیست. لایسنس سالانه را تهیه می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود
+            و راه‌اندازی اولیه را همراه تیم‌تان پیش می‌بریم.
           </p>
         </div>
         <div className="mt-12 grid divide-y border-y border-[#dfe2e6] dark:divide-slate-800 dark:border-slate-800 md:grid-cols-4 md:divide-x md:divide-y-0 md:rtl:divide-x-reverse">
           <DeploymentItem
             number="۰۱"
-            title="مشاوره قبل از خرید"
-            text="نیاز تیم، تعداد کاربران و زیرساخت مناسب را قبل از تصمیم‌گیری بررسی می‌کنیم."
+            title="بررسی قبل از خرید"
+            text="تعداد کاربران، مسیر فروش و اتصال‌های موردنیاز را قبل از تصمیم‌گیری مرور می‌کنیم."
           />
           <DeploymentItem
             number="۰۲"
-            title="راه‌اندازی اولیه رایگان"
-            text="پس از خرید دال، نصب و تنظیمات اولیه روی سرور سازمان شما بدون هزینه جداگانه انجام می‌شود."
+            title="نصب و تنظیم اولیه"
+            text="پس از خرید، نصب و تنظیمات اولیه روی سرور سازمان شما بدون هزینه جداگانه انجام می‌شود."
           />
           <DeploymentItem
             number="۰۳"
-            title="کنترل داده با شماست"
-            text="داده‌ها در زیرساخت خودتان نگه‌داری می‌شوند و سیاست دسترسی را سازمان شما تعیین می‌کند."
+            title="داده در زیرساخت شما"
+            text="اطلاعات مشتری در سرور سازمان شما می‌ماند و سیاست دسترسی را خودتان تعیین می‌کنید."
           />
           <DeploymentItem
             number="۰۴"
             title="همراهی شروع کار"
-            text="برای آموزش، تنظیم مسیر فروش و استفاده درست از قابلیت‌ها در شروع کنار تیم شما هستیم."
+            text="برای آموزش تیم و تنظیم مسیر فروش، در شروع استفاده کنار شما هستیم."
           />
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button asChild className="gap-2 rounded-lg">
             <a href={`${CRM_URL}/demo`}>
-              مشاوره خرید و راه‌اندازی <ArrowUpLeft className="size-4" />
+              مشاهده دموی واقعی <ArrowUpLeft className="size-4" />
             </a>
           </Button>
           <p className="text-xs leading-6 text-slate-500 dark:text-slate-400">
-            دمو عمومی رایگان است؛ راه‌اندازی روی سرور شما بعد از خرید انجام می‌شود.
+            اول دمو را ببینید؛ بعد درباره خرید، نصب و شروع کار تصمیم بگیرید.
           </p>
         </div>
       </div>
@@ -593,12 +594,13 @@ const PRICING_PLANS: PricingPlan[] = [
     price: "۱۹٫۹ میلیون",
     priceLabel: "لایسنس سالانه",
     users: "تا ۵ کاربر",
-    description: "برای اینکه تیم فروش سریع از اکسل و پیام‌رسان جدا شود و یک مسیر مشترک داشته باشد.",
+    description:
+      "برای تیمی که می‌خواهد سرنخ‌ها و پیگیری‌های فروش را از فایل‌ها و پیام‌رسان‌ها جدا کند.",
     features: [
-      "سرنخ، مخاطب و شرکت",
+      "مدیریت سرنخ، مخاطب و شرکت",
       "معاملات و قیف فروش",
-      "پیگیری‌های روزانه و داشبورد",
-      "پیش‌فاکتور، پرداخت و گزارش پایه",
+      "پیگیری‌ها و داشبورد فروش",
+      "پیش‌فاکتور و ثبت پرداخت",
     ],
     cta: "اول دمو را ببینید",
   },
@@ -608,14 +610,13 @@ const PRICING_PLANS: PricingPlan[] = [
     price: "۳۹٫۹ میلیون",
     priceLabel: "لایسنس سالانه",
     users: "تا ۱۵ کاربر",
-    description:
-      "برای تیمی که می‌خواهد پیگیری‌ها، کمپین‌ها و تصمیم‌های فروش را منظم و قابل‌اندازه‌گیری کند.",
+    description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش دقیق‌تر جلو ببرد.",
     features: [
       "همه امکانات پلن شروع",
-      "اتوماسیون و اجرای خودکار پیگیری",
-      "کمپین‌های ایمیلی و پیامکی",
-      "چت با داده‌ها و ایجنت‌های AI",
-      "گزارش‌های تیمی و نقش‌های دسترسی",
+      "کمپین‌های ارتباطی پیامکی و ایمیلی",
+      "اتوماسیون ساخت پیگیری و ارسال پیام",
+      "گزارش فروش و عملکرد تیم",
+      "چت با داده‌های CRM",
     ],
     cta: "مشاهده دمو و دریافت قیمت",
     popular: true,
@@ -626,14 +627,13 @@ const PRICING_PLANS: PricingPlan[] = [
     price: "از ۷۹٫۹ میلیون",
     priceLabel: "لایسنس سالانه اختصاصی",
     users: "کاربران سفارشی",
-    description:
-      "برای سازمانی که داده را روی زیرساخت خودش نگه می‌دارد و راه‌اندازی همراه تیم می‌خواهد.",
+    description: "برای سازمانی که استقرار خصوصی، اتصال‌های اختصاصی و کنترل کامل داده می‌خواهد.",
     features: [
       "همه امکانات پلن رشد",
-      "نصب خصوصی روی سرور سازمان",
-      "مهاجرت داده و اتصال‌های اختصاصی",
-      "آموزش و پشتیبانی اولویت‌دار",
-      "تنظیمات متناسب با فرایند فروش سازمان",
+      "ایجنت‌های هوش مصنوعی و اتصال‌های پیشرفته",
+      "اتصال SMS، SMTP، Asterisk و مدل‌های هوش مصنوعی",
+      "نقش‌ها و دسترسی‌های سازمانی",
+      "مهاجرت داده و تنظیمات متناسب با فرایند فروش",
     ],
     cta: "درخواست پیشنهاد سازمانی",
   },
@@ -669,12 +669,12 @@ function PricingSection() {
             خرید، بدون هزینه جداگانه.
           </p>
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">نوع خرید:</span> لایسنس
+            <span className="font-bold text-[#101827] dark:text-white">نوع خرید:</span> حق استفاده
             سالانه روی سرور شما.
           </p>
           <p>
             <span className="font-bold text-[#101827] dark:text-white">تمدید:</span> برای ادامه
-            استفاده، هر سال تمدید می‌شود.
+            استفاده، لایسنس هر سال تمدید می‌شود.
           </p>
         </div>
       </div>
@@ -745,10 +745,10 @@ function FaqSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            قبل از خرید، جواب سؤال‌های اصلی را بخوانید.
+            سؤال‌های مهم قبل از خرید
           </h2>
           <p className="mt-5 text-sm leading-8 text-slate-500 dark:text-slate-400">
-            اگر جواب سؤال شما اینجا نیست، در فرم مشاوره خرید نیازتان را بنویسید تا دقیق‌تر
+            اگر پاسخ سؤال شما اینجا نیست، فرم کوتاه دمو را پر کنید تا درباره استقرار و خرید دقیق‌تر
             راهنمایی‌تان کنیم.
           </p>
         </div>
@@ -779,7 +779,7 @@ function HeroProductSurface() {
       <div className="relative overflow-hidden border border-[#18233a] bg-[#111a2d] text-white shadow-[0_22px_50px_-25px_rgba(15,23,42,0.55)]">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-[10px] text-slate-400 sm:px-5">
           <span className="flex items-center gap-2">
-            <PanelLeft className="size-3.5" /> دال / داشبورد فروش
+            <PanelLeft className="size-3.5" /> دال / نمای فروش · داده نمونه
           </span>
         </div>
         <div className="grid md:grid-cols-[1fr_13rem]">
@@ -787,22 +787,22 @@ function HeroProductSurface() {
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-[10px] text-blue-300">امروز · تیم فروش</p>
-                <h2 className="mt-2 text-xl font-bold">نمای عملیاتی فروش</h2>
+                <h2 className="mt-2 text-xl font-bold">داشبورد فروش</h2>
               </div>
               <BarChart3 className="size-5 text-blue-300" />
             </div>
             <div className="mt-7 grid grid-cols-3 border-y border-white/10">
-              <DarkStat label="ارزش قیف باز" value="۱٫۰۴ میلیارد" />
-              <DarkStat label="ارزش وزنی" value="۴۱۴٫۸۸ میلیون" />
-              <DarkStat label="پیگیری امروز" value="۱۲ کار" />
+              <DarkStat label="ارزش فرصت‌های باز" value="۱٫۰۴ میلیارد" />
+              <DarkStat label="ارزش مورد انتظار" value="۴۱۴٫۸۸ میلیون" />
+              <DarkStat label="کارهای امروز" value="۱۲ کار" />
             </div>
             <div className="mt-7">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <h3 className="text-sm font-semibold">معاملات در حرکت</h3>
+                  <h3 className="text-sm font-semibold">معاملات در حال پیگیری</h3>
                   <p className="mt-1 text-[10px] text-slate-400">آخرین تغییرات قیف فروش</p>
                 </div>
-                <span className="text-[10px] text-blue-300">۳ معامله فعال</span>
+                <span className="text-[10px] text-blue-300">۳ فرصت باز</span>
               </div>
               <div className="mt-4 divide-y divide-white/10">
                 {DEMO_DEALS.map((deal) => (
@@ -829,13 +829,15 @@ function HeroProductSurface() {
               <ListTodo className="size-4" />
               <span className="text-xs font-semibold">قدم بعدی</span>
             </div>
-            <p className="mt-7 text-lg font-bold leading-8">هیچ سرنخی بدون مسئول نمی‌ماند.</p>
+            <p className="mt-7 text-lg font-bold leading-8">
+              هیچ فرصت فروشی بدون قدم بعدی نمی‌ماند.
+            </p>
             <div className="mt-7 border-t border-white/10 pt-4">
               <p className="text-xs font-semibold">تماس با سارا محمدی</p>
               <p className="mt-1 text-[10px] text-slate-400">راهکار نو · امروز، ۱۰:۳۰</p>
             </div>
             <div className="mt-4 border-t border-white/10 pt-4">
-              <p className="text-xs font-semibold">ارسال پیشنهاد سازمانی</p>
+              <p className="text-xs font-semibold">ارسال پیشنهاد استقرار</p>
               <p className="mt-1 text-[10px] text-slate-400">پیشگامان شرق · امروز، ۱۴:۰۰</p>
             </div>
           </aside>
@@ -883,14 +885,14 @@ function LeadsPreview() {
       <div className="flex items-center justify-between gap-3">
         <div>
           <p className="text-xs font-bold text-slate-800 dark:text-slate-100">سرنخ‌های ورودی</p>
-          <p className="mt-1 text-[10px] text-slate-400">ثبت، اولویت‌بندی و تبدیل سرنخ‌های فروش</p>
+          <p className="mt-1 text-[10px] text-slate-400">ثبت، اولویت‌بندی و پیگیری سرنخ‌های فروش</p>
         </div>
         <Search className="size-4 text-slate-400" />
       </div>
       <div className="mt-5 grid divide-y border-y border-slate-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:rtl:divide-x-reverse dark:divide-slate-700 dark:border-slate-700">
         <DataLine icon={Users} label="مخاطب" value="سارا محمدی" />
         <DataLine icon={Building2} label="شرکت" value="راهکار نو" />
-        <DataLine icon={MessageSquare} label="منبع" value="فرم مشاوره" />
+        <DataLine icon={MessageSquare} label="منبع" value="فرم دمو" />
       </div>
       <div className="mt-5 flex flex-wrap gap-2 text-[10px] text-slate-500 dark:text-slate-400">
         <span className="border border-blue-200 bg-blue-50 px-2 py-1 text-blue-700 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-200">
@@ -911,7 +913,7 @@ function PipelinePreview() {
   const stages = [
     { label: "سرنخ جدید", title: "گسترش کاربران سازمانی", amount: "۴۸۸ میلیون" },
     { label: "پیشنهاد", title: "راه‌اندازی مرکز تماس", amount: "۳۳۶ میلیون" },
-    { label: "مذاکره", title: "اشتراک سالانه تیم فروش", amount: "۱۴۸ میلیون" },
+    { label: "مذاکره", title: "پیاده‌سازی سامانه فروش", amount: "۱۴۸ میلیون" },
   ];
   return (
     <div>
@@ -919,7 +921,7 @@ function PipelinePreview() {
         <div>
           <p className="text-xs font-bold text-slate-800 dark:text-slate-100">قیف فروش</p>
           <p className="mt-1 text-[10px] text-slate-400">
-            مرحله، مبلغ و احتمال هر معامله در یک نگاه
+            مرحله، مبلغ و احتمال هر معامله را یک‌جا ببینید
           </p>
         </div>
         <Target className="size-4 text-blue-600" />
@@ -952,7 +954,7 @@ function FollowupsPreview() {
           <p className="text-xs font-bold text-slate-800 dark:text-slate-100">
             پیگیری‌ها و اتوماسیون
           </p>
-          <p className="mt-1 text-[10px] text-slate-400">کار بعدی هر رابطه، با زمان و مسئول مشخص</p>
+          <p className="mt-1 text-[10px] text-slate-400">کار بعدی هر مشتری، با مسئول و زمان مشخص</p>
         </div>
         <Settings2 className="size-4 text-blue-600" />
       </div>
@@ -970,12 +972,14 @@ function FollowupsPreview() {
               </p>
               <p className="mt-1 text-[10px] text-slate-400">{activity.meta}</p>
             </div>
-            <span className="text-[10px] text-slate-400">{index === 0 ? "فوری" : "باز"}</span>
+            <span className="text-[10px] text-slate-400">
+              {index === 0 ? "امروز" : "در انتظار"}
+            </span>
           </div>
         ))}
       </div>
       <div className="mt-4 flex items-center gap-2 text-[10px] text-emerald-700 dark:text-emerald-300">
-        <Workflow className="size-3.5" /> اگر مخاطب جدید ثبت شد، پیگیری اولیه ساخته شود.
+        <Workflow className="size-3.5" /> با ثبت مخاطب جدید، پیگیری اولیه ساخته شود.
       </div>
     </div>
   );
@@ -990,7 +994,7 @@ function BillingPreview() {
       status: "پرداخت نشده",
     },
     {
-      title: "اشتراک سالانه تیم فروش",
+      title: "پیاده‌سازی سامانه فروش",
       customer: "راهکار نو",
       value: "۱۴۸ میلیون",
       status: "بخشی پرداخت شده",
@@ -1003,7 +1007,9 @@ function BillingPreview() {
           <p className="text-xs font-bold text-slate-800 dark:text-slate-100">
             پیش‌فاکتور و پرداخت
           </p>
-          <p className="mt-1 text-[10px] text-slate-400">فروش را تا دریافت وجه از دست ندهید</p>
+          <p className="mt-1 text-[10px] text-slate-400">
+            وضعیت فروش را تا دریافت وجه روشن نگه دارید
+          </p>
         </div>
         <FileText className="size-4 text-blue-600" />
       </div>
@@ -1029,7 +1035,7 @@ function BillingPreview() {
       </div>
       <div className="mt-4 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">
         <span className="flex items-center gap-2">
-          <ReceiptText className="size-3.5" /> مانده حساب مشتریان
+          <ReceiptText className="size-3.5" /> مانده دریافتنی
         </span>
         <span className="font-bold text-slate-800 dark:text-slate-100">۲۲۸ میلیون تومان</span>
       </div>
@@ -1042,9 +1048,11 @@ function IntelligencePreview() {
     <div>
       <div className="flex items-center justify-between gap-3">
         <div>
-          <p className="text-xs font-bold text-slate-800 dark:text-slate-100">اتصال‌ها و AI</p>
+          <p className="text-xs font-bold text-slate-800 dark:text-slate-100">
+            اتصال‌ها و هوش مصنوعی
+          </p>
           <p className="mt-1 text-[10px] text-slate-400">
-            هر تیم می‌تواند مسیر هوشمندسازی خودش را تنظیم کند
+            دال را به ابزارهای ارتباطی و مدل هوش مصنوعی موردنظر تیم وصل کنید
           </p>
         </div>
         <Bot className="size-4 text-blue-600" />
@@ -1052,17 +1060,17 @@ function IntelligencePreview() {
       <div className="mt-5 grid gap-5 sm:grid-cols-[1fr_1.2fr]">
         <div className="divide-y border-y border-slate-200 dark:divide-slate-700 dark:border-slate-700">
           <IntegrationRow icon={Mail} label="SMTP / ایمیل" status="متصل" />
-          <IntegrationRow icon={MessageSquare} label="پیامک" status="قابل تنظیم" />
-          <IntegrationRow icon={Plug} label="OpenAI / Local AI" status="قابل تنظیم" />
+          <IntegrationRow icon={MessageSquare} label="پیامک" status="قابل اتصال" />
+          <IntegrationRow icon={Plug} label="OpenAI / هوش مصنوعی محلی" status="قابل اتصال" />
         </div>
         <div className="border-s border-blue-500 ps-4">
-          <p className="text-[10px] text-slate-400">چت با داده‌های CRM</p>
+          <p className="text-[10px] text-slate-400">چت با داده‌های دال</p>
           <p className="mt-3 text-xs font-semibold leading-6 text-slate-800 dark:text-slate-100">
-            کدام پیگیری‌های امروز بیشترین احتمال تبدیل را دارند؟
+            کدام پیگیری امروز اولویت بیشتری دارد؟
           </p>
           <div className="mt-4 border-s border-blue-500 ps-3 text-[10px] leading-6 text-slate-500 dark:text-slate-400">
-            سه معامله در مرحله پیشنهاد هستند؛ راه‌اندازی مرکز تماس به‌دلیل مبلغ و احتمال، اولویت
-            بالاتری دارد.
+            سه فرصت در مرحله پیشنهاد هستند؛ پیگیری «راه‌اندازی مرکز تماس» به‌دلیل مبلغ و احتمال،
+            اولویت بالاتری دارد.
           </div>
         </div>
       </div>

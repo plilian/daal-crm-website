@@ -18,10 +18,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { title: "سامانه مدیریت مشتریان دال | CRM فارسی فروش" },
+      { title: "سامانه مدیریت مشتریان دال | CRM فارسی برای فروش" },
       {
         name: "description",
-        content: "سامانه مدیریت مشتریان دال برای مدیریت سرنخ، فروش، پیگیری، فاکتور و گزارش.",
+        content:
+          "سامانه مدیریت مشتریان دال برای مدیریت سرنخ، معاملات، پیگیری، پیش‌فاکتور، پرداخت و گزارش.",
       },
       { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
       { property: "og:site_name", content: "سامانه مدیریت مشتریان دال" },
