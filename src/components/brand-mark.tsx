@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** نشان خنثی و قابل‌استفاده برای هر سازمان در DaalCRM */
+/** لوگوی رسمی گروه فناوری دال برای سایت و محصول DaalCRM */
 export function BrandMark({
   className,
   markClassName,
@@ -10,20 +10,19 @@ export function BrandMark({
   className?: string;
   markClassName?: string;
   decorative?: boolean;
-  /** solid = نشان اپ؛ ghost = نسخه سبک برای ورود */
+  /** solid = لوگوی اصلی؛ ghost = نسخه سبک برای ورود */
   variant?: "solid" | "ghost";
 }) {
   const mark = (
     <span
       className={cn(
-        "relative inline-flex items-center justify-center rounded-[0.35rem] bg-gradient-to-br from-primary to-blue-700 font-black leading-none text-primary-foreground shadow-sm",
+        "inline-flex items-center justify-center overflow-hidden rounded-[0.35rem] bg-white shadow-sm",
         variant === "ghost" ? "size-11" : "size-full",
         markClassName,
       )}
       aria-hidden="true"
     >
-      <span className="text-[0.9em] tracking-[-0.08em]">S</span>
-      <span className="absolute bottom-[18%] end-[18%] h-[0.18em] w-[0.7em] rounded-full bg-primary-foreground/75" />
+      <img src="/daalgp-logo.png" alt="" className="size-full object-contain" />
     </span>
   );
 
@@ -36,7 +35,7 @@ export function BrandMark({
         )}
         aria-hidden={decorative ? true : undefined}
         role={decorative ? undefined : "img"}
-        aria-label={decorative ? undefined : "DaalCRM"}
+        aria-label={decorative ? undefined : "لوگوی دال"}
       >
         {mark}
       </span>
@@ -51,7 +50,7 @@ export function BrandMark({
       )}
       aria-hidden={decorative ? true : undefined}
       role={decorative ? undefined : "img"}
-      aria-label={decorative ? undefined : "DaalCRM"}
+      aria-label={decorative ? undefined : "لوگوی دال"}
     >
       {mark}
     </span>

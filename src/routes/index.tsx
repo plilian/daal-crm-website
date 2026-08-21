@@ -74,72 +74,72 @@ const FEATURES: Feature[] = [
   {
     id: "leads",
     number: "۰۱",
-    eyebrow: "مدیریت سرنخ و پرونده مشتری",
-    title: "سابقه هر مشتری را یک‌جا در اختیار تیم بگذارید.",
+    eyebrow: "سرنخ، مخاطب و شرکت",
+    title: "پروندهٔ هر مشتری را از اولین تماس بسازید.",
     summary:
-      "اطلاعات سرنخ، مخاطب و شرکت در پرونده‌های مرتبط کنار هم قرار می‌گیرد تا تیم فروش سابقه هر رابطه را یک‌جا ببیند.",
+      "منبع سرنخ، مشخصات مخاطب، شرکت و سابقهٔ تعامل‌ها در یک پروندهٔ مرتبط می‌ماند تا هیچ تماس و فرصتی گم نشود.",
     bullets: [
       "ثبت سرنخ با منبع و وضعیت",
-      "ارتباط مخاطب و شرکت با سابقه تعامل",
-      "جست‌وجو و فیلتر در داده‌های فروش",
+      "ارتباط مخاطب و شرکت با معامله‌ها",
+      "جست‌وجو و فیلتر در پرونده‌ها",
     ],
     icon: Users,
   },
   {
     id: "pipeline",
     number: "۰۲",
-    eyebrow: "معاملات و قیف فروش",
-    title: "برای هر معامله، مرحله و اقدام بعدی روشن است.",
+    eyebrow: "معامله و سفارش",
+    title: "هر فرصت فروش را تا قرارداد و سفارش جلو ببرید.",
     summary:
-      "معامله‌ها را در قیف فروش ببینید، بین مراحل جابه‌جا کنید و بدانید کدام فرصت به پیگیری نیاز دارد.",
+      "معامله‌ها در قیف فروش، با مبلغ، احتمال موفقیت، تاریخ بستن و مسئول فروش ثبت می‌شوند؛ از سرنخ تا سفارش یک مسیر دارید.",
     bullets: [
       "نمای کانبان برای مراحل فروش",
-      "مبلغ، احتمال و تاریخ بستن معامله",
-      "قدم بعدی روشن برای هر فرصت",
+      "مبلغ، احتمال و تاریخ بستن",
+      "فروشنده و مسئول هر معامله",
     ],
     icon: Target,
   },
   {
     id: "followups",
     number: "۰۳",
-    eyebrow: "پیگیری، کمپین و اتوماسیون",
-    title: "پیگیری‌ها با مسئول و زمان مشخص پیش می‌روند.",
+    eyebrow: "پیگیری و اتوماسیون",
+    title: "اقدام بعدی هر مشتری همیشه مشخص باشد.",
     summary:
-      "فعالیت‌های روزانه، کمپین‌های ارتباطی و قواعد خودکارسازی کمک می‌کنند پیگیری هر فرصت به‌موقع انجام شود.",
+      "تماس، جلسه، وظیفه و یادداشت را به مخاطب، معامله و فاکتور وصل کنید و پیگیری‌های تیم را با مسئول و موعد مشخص جلو ببرید.",
     bullets: [
-      "تقویم فعالیت و پیگیری",
-      "کمپین‌های پیامکی و ایمیلی",
-      "ساخت خودکار پیگیری و ارسال پیام",
+      "ثبت تماس، جلسه و وظیفه",
+      "اتصال پیگیری به سفارش و فاکتور",
+      "کمپین و خودکارسازی فروش",
     ],
     icon: Workflow,
   },
   {
     id: "billing",
     number: "۰۴",
-    eyebrow: "پیش‌فاکتور، پرداخت و گزارش",
-    title: "فروش را تا دریافت وجه دنبال کنید.",
+    eyebrow: "فاکتور، پرداخت و دریافت",
+    title: "بدانید چه فروشی صادر شده و چه مبلغی مانده است.",
     summary:
-      "پیش‌فاکتور، پرداخت، مانده دریافتنی و گزارش فروش را به پرونده مشتری و معامله وصل کنید؛ لینک پرداخت زرین‌پال بسازید و مخاطبان را به حسابفا بفرستید.",
+      "فاکتور به سفارش و فروشنده وصل است؛ پرداخت دستی یا آنلاین زرین‌پال در همان مسیر ثبت می‌شود و ماندهٔ دریافتنی روشن می‌ماند.",
     bullets: [
-      "صدور پیش‌فاکتور و ثبت پرداخت",
-      "ساخت لینک پرداخت زرین‌پال",
-      "همگام‌سازی مخاطب با حسابفا",
+      "فاکتور متصل به سفارش و فروشنده",
+      "ثبت پرداخت و پیگیری مانده",
+      "زرین‌پال و همگام‌سازی حسابفا",
     ],
     icon: CircleDollarSign,
   },
   {
     id: "intelligence",
     number: "۰۵",
-    eyebrow: "چت با داده‌ها و یکپارچه‌سازی",
-    title: "سؤال‌های فروش را مستقیم از داده‌ها بپرسید.",
+    eyebrow: "گزارش و یکپارچه‌سازی",
+    title: "از وضعیت فروش و دریافت، تصویر قابل تصمیم بگیرید.",
     summary:
-      "دال به پیامک، ایمیل، تلفن و سرویس‌های هوش مصنوعی وصل می‌شود تا تیم فروش سریع‌تر اطلاعات را بررسی و درباره قدم بعدی تصمیم بگیرد.",
+      "داشبورد و گزارش‌ها عملکرد فروشنده، وضعیت قیف، فاکتورهای باز، پرداخت‌های موفق و اتصال حسابداری را کنار هم نشان می‌دهند.",
     bullets: [
-      "چت با داده‌های CRM",
-      "ساخت ایجنت‌های هوش مصنوعی",
-      "اتصال SMS، SMTP، Asterisk و مدل‌های هوش مصنوعی",
+      "گزارش قیف و عملکرد فروشنده",
+      "وضعیت پرداخت و مطالبات",
+      "حسابفا، زرین‌پال و اتصال‌های ارتباطی",
     ],
-    icon: Bot,
+    icon: BarChart3,
   },
 ];
 
@@ -187,7 +187,7 @@ function DemoPage() {
               markClassName="rounded-lg text-xs"
               decorative
             />
-            <span className="brand-mark text-base tracking-tight">Daal CRM</span>
+            <span className="brand-mark text-base tracking-tight">DaalCRM</span>
             <span className="hidden border-s border-[#c9cdd3] ps-3 text-[11px] text-slate-500 sm:inline">
               سامانه مدیریت مشتریان دال
             </span>
@@ -224,14 +224,14 @@ function DemoPage() {
               سؤالات متداول
             </a>
             <a href={`${CRM_URL}/demo`} className="font-semibold text-blue-600 hover:text-blue-700">
-              دیدن دموی واقعی
+              مشاهدهٔ دموی CRM
             </a>
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button asChild size="sm" className="hidden gap-1.5 rounded-lg sm:inline-flex">
               <a href={`${CRM_URL}/demo`}>
-                دیدن دموی واقعی <ArrowUpLeft className="size-3.5" />
+                مشاهدهٔ دموی CRM <ArrowUpLeft className="size-3.5" />
               </a>
             </Button>
           </div>
@@ -243,16 +243,16 @@ function DemoPage() {
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16 lg:py-24">
             <div className="order-1 max-w-xl lg:order-1">
               <h1 className="max-w-lg text-4xl font-black leading-[1.22] tracking-tight text-[#101827] dark:text-white sm:text-5xl">
-                فروش را از سرنخ تا دریافت وجه، منظم و قابل پیگیری کنید.
+                از اولین سرنخ تا دریافت وجه، فروش را یک‌جا دنبال کنید.
               </h1>
               <p className="mt-6 max-w-md text-base leading-8 text-slate-600 dark:text-slate-300">
-                سامانه مدیریت مشتریان دال سرنخ‌ها، معاملات، پیگیری‌ها، پیش‌فاکتورها، پرداخت‌ها و
-                گزارش‌ها را در یک جریان کاری روشن کنار هم می‌آورد و روی سرور خودتان اجرا می‌شود.
+                DaalCRM سرنخ، مخاطب، معامله، پیگیری، فاکتور و پرداخت را به هم وصل می‌کند تا تیم فروش
+                بداند هر مشتری در چه مرحله‌ای است و قدم بعدی چیست.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="gap-2 rounded-lg px-5">
                   <a href="#features">
-                    آشنایی با قابلیت‌ها <ArrowLeft className="size-4" />
+                    قابلیت‌های واقعی سامانه <ArrowLeft className="size-4" />
                   </a>
                 </Button>
                 <Button
@@ -261,18 +261,18 @@ function DemoPage() {
                   variant="outline"
                   className="rounded-lg border-[#cbd1da] bg-transparent px-5"
                 >
-                  <a href={`${CRM_URL}/demo`}>مشاهده دموی واقعی</a>
+                  <a href={`${CRM_URL}/demo`}>مشاهدهٔ دموی CRM</a>
                 </Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[11px] text-slate-500 dark:text-slate-400">
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="size-3.5 text-emerald-600" /> دمو با داده‌های نمونه
+                  <CheckCircle2 className="size-3.5 text-emerald-600" /> محیط واقعی با دادهٔ نمونه
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <ShieldDot /> نصب روی سرور سازمان
+                  <ShieldDot /> نصب روی سرور سازمان شما
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300">
-                  <CircleDollarSign className="size-3.5" /> لایسنس سالانه بر اساس ظرفیت تیم
+                  <CircleDollarSign className="size-3.5" /> لایسنس سالانه بر اساس تعداد کاربر
                 </span>
               </div>
             </div>
@@ -302,11 +302,11 @@ function DemoPage() {
                 ابزارهای فروش دال
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-                سرنخ، معامله، پیگیری و پرداخت در یک مسیر مشخص.
+                همهٔ اطلاعات فروش، از ثبت سرنخ تا دریافت، در یک مسیر مشخص.
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-                از ثبت اولین سرنخ تا دریافت وجه، اطلاعات و کارهای تیم در یک جریان روشن کنار هم قرار
-                می‌گیرند.
+                دال فقط فهرست مخاطب نیست؛ رابطهٔ مشتری، سفارش، فروشنده، پیگیری، فاکتور و پرداخت را
+                کنار هم نگه می‌دارد.
               </p>
             </div>
 
@@ -386,11 +386,12 @@ function DemoPage() {
                   جریان کاری فروش
                 </p>
                 <h2 className="mt-4 max-w-2xl text-3xl font-black leading-tight tracking-tight sm:text-4xl">
-                  هر سرنخ باید به یک اقدام بعدی برسد.
+                  فروش وقتی جلو می‌رود که قدم بعدی روشن باشد.
                 </h2>
               </div>
               <p className="max-w-sm text-sm leading-7 text-slate-300">
-                از ثبت سرنخ تا دریافت وجه، هر مرحله به قدم بعدی وصل است.
+                در DaalCRM مسیر فروش از یک فرم ورودی شروع می‌شود و تا فاکتور، پرداخت و گزارش ادامه
+                پیدا می‌کند.
               </p>
             </div>
             <div className="grid divide-y divide-white/15 pt-2 sm:grid-cols-4 sm:divide-x sm:divide-y-0 sm:rtl:divide-x-reverse">
@@ -443,7 +444,7 @@ function DemoPage() {
             </div>
             <Button asChild size="lg" className="shrink-0 gap-2 rounded-lg px-5">
               <a href={`${CRM_URL}/demo`}>
-                مشاهده دموی واقعی <ArrowUpLeft className="size-4" />
+                مشاهدهٔ دموی CRM <ArrowUpLeft className="size-4" />
               </a>
             </Button>
           </div>
@@ -554,7 +555,7 @@ function DeploymentSection() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button asChild className="gap-2 rounded-lg">
             <a href={`${CRM_URL}/demo`}>
-              مشاهده دموی واقعی <ArrowUpLeft className="size-4" />
+              مشاهدهٔ دموی CRM <ArrowUpLeft className="size-4" />
             </a>
           </Button>
           <p className="text-xs leading-6 text-slate-500 dark:text-slate-400">
@@ -620,7 +621,7 @@ const PRICING_PLANS: PricingPlan[] = [
       "گزارش فروش و عملکرد تیم",
       "چت با داده‌های CRM",
     ],
-    cta: "مشاهده دموی واقعی",
+    cta: "مشاهدهٔ دموی CRM",
     popular: true,
   },
   {
@@ -781,7 +782,7 @@ function HeroProductSurface() {
       <div className="relative overflow-hidden border border-[#18233a] bg-[#111a2d] text-white shadow-[0_22px_50px_-25px_rgba(15,23,42,0.55)]">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-[10px] text-slate-400 sm:px-5">
           <span className="flex items-center gap-2">
-            <PanelLeft className="size-3.5" /> دال / نمای فروش · داده نمونه
+            <PanelLeft className="size-3.5" /> DaalCRM / نمای فروش · دادهٔ نمونه
           </span>
         </div>
         <div className="grid md:grid-cols-[1fr_13rem]">
