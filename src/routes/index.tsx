@@ -614,6 +614,32 @@ function DeploymentItem({ number, title, text }: { number: string; title: string
   );
 }
 
+const MIN_LICENSE_USERS = 5;
+const MONTHLY_START_PRICE_AT_MIN_USERS = 3_556_800;
+const MONTHLY_START_PRICE_PER_USER = MONTHLY_START_PRICE_AT_MIN_USERS / MIN_LICENSE_USERS;
+const GROWTH_REFERENCE_USERS = 15;
+const CURRENT_GROWTH_PRICE_AT_REFERENCE_USERS = 6_786_000;
+const GROWTH_PRICE_MULTIPLIER = 1.6;
+const MONTHLY_GROWTH_PRICE_AT_REFERENCE_USERS =
+  CURRENT_GROWTH_PRICE_AT_REFERENCE_USERS * GROWTH_PRICE_MULTIPLIER;
+const MONTHLY_GROWTH_PRICE_PER_USER =
+  MONTHLY_GROWTH_PRICE_AT_REFERENCE_USERS / GROWTH_REFERENCE_USERS;
+const LIFETIME_LICENSE_PRICE = 249_000_000;
+const millionFormatter = new Intl.NumberFormat("fa-IR", { maximumFractionDigits: 5 });
+const integerFormatter = new Intl.NumberFormat("fa-IR", { maximumFractionDigits: 0 });
+
+function formatMillionToman(value: number): string {
+  return `${millionFormatter.format(value / 1_000_000)} میلیون`;
+}
+
+function formatUserCount(value: number): string {
+  return integerFormatter.format(value);
+}
+
+function formatPerUser(value: number): string {
+  return `معادل ${integerFormatter.format(Math.round(value))} تومان برای هر کاربر`;
+}
+
 type PricingPlan = {
   name: string;
   eyebrow: string;
@@ -622,6 +648,9 @@ type PricingPlan = {
   priceLabel: string;
   perUser: string;
   users: string;
+  priceForUsers?: (users: number) => string;
+  perUserForUsers?: (users: number) => string;
+  usersForUsers?: (users: number) => string;
   description: string;
   features: string[];
   support: string;
@@ -634,11 +663,14 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "شروع",
     eyebrow: "برای تیم‌های کوچک",
-    price: "۲٫۹۶۴ میلیون",
+    price: formatMillionToman(MONTHLY_START_PRICE_AT_MIN_USERS),
     priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
-    perUser: "معادل ۵۹۲٫۸ هزار تومان برای هر کاربر",
-    users: "تا ۵ کاربر",
+    perUser: formatPerUser(MONTHLY_START_PRICE_PER_USER),
+    users: "حداقل ۵ کاربر",
+    priceForUsers: (users) => formatMillionToman(MONTHLY_START_PRICE_PER_USER * users),
+    perUserForUsers: () => formatPerUser(MONTHLY_START_PRICE_PER_USER),
+    usersForUsers: (users) => `برای ${formatUserCount(users)} کاربر`,
     description:
       "برای تیمی که می‌خواهد سرنخ‌ها و پیگیری‌های فروش را از فایل‌ها و پیام‌رسان‌ها جدا کند.",
     features: [
@@ -654,11 +686,14 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "رشد",
     eyebrow: "برای تیم‌های فروش در حال رشد",
-    price: "۶٫۷۸۶ میلیون",
+    price: formatMillionToman(MONTHLY_GROWTH_PRICE_AT_REFERENCE_USERS),
     priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
-    perUser: "معادل ۴۵۲٫۴ هزار تومان برای هر کاربر",
-    users: "تا ۱۵ کاربر",
+    perUser: formatPerUser(MONTHLY_GROWTH_PRICE_PER_USER),
+    users: "حداقل ۵ کاربر",
+    priceForUsers: (users) => formatMillionToman(MONTHLY_GROWTH_PRICE_PER_USER * users),
+    perUserForUsers: () => formatPerUser(MONTHLY_GROWTH_PRICE_PER_USER),
+    usersForUsers: (users) => `برای ${formatUserCount(users)} کاربر`,
     description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش‌های دقیق‌تر جلو ببرد.",
     features: [
       "همه امکانات پلن شروع",
@@ -695,7 +730,7 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "دائمی",
     eyebrow: "برای خرید یک‌باره",
-    price: "۲۴۹ میلیون",
+    price: formatMillionToman(LIFETIME_LICENSE_PRICE),
     priceUnit: "تومان",
     priceLabel: "لایسنس دائمی",
     perUser: "هزینهٔ یک‌باره؛ تعداد کاربران طبق قرارداد",
@@ -716,6 +751,8 @@ const PRICING_PLANS: PricingPlan[] = [
 ];
 
 function PricingSection() {
+  const [userCount, setUserCount] = useState(MIN_LICENSE_USERS);
+
   return (
     <section
       id="pricing"
@@ -737,9 +774,44 @@ function PricingSection() {
             توقف پرداخت حق استفاده از نرم‌افزار ادامه پیدا نمی‌کند.
           </p>
         </div>
+        <div className="mt-8 flex flex-col gap-4 border-y border-[#dfe2e6] py-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+          <div>
+            <label
+              htmlFor="pricing-user-count"
+              className="text-sm font-bold text-[#101827] dark:text-white"
+            >
+              تعداد کاربران
+            </label>
+            <p className="mt-1 text-xs leading-6 text-slate-500 dark:text-slate-400">
+              حداقل ۵ کاربر؛ قیمت پلن‌های ماهانه با تعداد انتخابی محاسبه می‌شود.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <input
+              id="pricing-user-count"
+              type="number"
+              min={MIN_LICENSE_USERS}
+              step={1}
+              value={userCount}
+              onChange={(event) => {
+                const next = Number.parseInt(event.target.value, 10);
+                setUserCount(
+                  Number.isFinite(next) ? Math.max(MIN_LICENSE_USERS, next) : MIN_LICENSE_USERS,
+                );
+              }}
+              className="h-11 w-28 rounded-lg border border-slate-300 bg-white px-3 text-center text-sm font-bold text-slate-900 outline-none ring-blue-500 focus:ring-2 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+              aria-label="تعداد کاربران"
+            />
+            <span className="text-xs text-slate-500 dark:text-slate-400">نفر</span>
+          </div>
+          <p className="max-w-md text-xs leading-6 text-slate-500 dark:text-slate-400 sm:text-left">
+            قیمت پلن رشد نسبت به قیمت فعلی خودش ۶۰٪ افزایش یافته است؛ پلن دائمی مستقل از این محاسبه
+            است.
+          </p>
+        </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
           {PRICING_PLANS.map((plan) => (
-            <PricingPlanCard key={plan.name} plan={plan} />
+            <PricingPlanCard key={plan.name} plan={plan} userCount={userCount} />
           ))}
         </div>
         <div className="mt-8 flex flex-col gap-5 border-s-2 border-blue-600 ps-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
@@ -778,7 +850,11 @@ function PricingSection() {
   );
 }
 
-function PricingPlanCard({ plan }: { plan: PricingPlan }) {
+function PricingPlanCard({ plan, userCount }: { plan: PricingPlan; userCount: number }) {
+  const price = plan.priceForUsers?.(userCount) ?? plan.price;
+  const perUser = plan.perUserForUsers?.(userCount) ?? plan.perUser;
+  const users = plan.usersForUsers?.(userCount) ?? plan.users;
+
   return (
     <article
       className={`relative flex h-full flex-col border p-5 sm:p-6 ${
@@ -795,12 +871,12 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
       <p className="text-xs font-bold text-blue-600 dark:text-blue-300">{plan.eyebrow}</p>
       <div className="mt-4 flex items-end justify-between gap-3">
         <h3 className="text-2xl font-black text-[#101827] dark:text-white">{plan.name}</h3>
-        <span className="text-[11px] text-slate-500 dark:text-slate-400">{plan.users}</span>
+        <span className="text-[11px] text-slate-500 dark:text-slate-400">{users}</span>
       </div>
       <div className="mt-6 border-y border-[#dfe2e6] py-4 dark:border-slate-800">
         <div className="flex items-baseline gap-2">
           <span className="text-3xl font-black tracking-tight text-[#101827] dark:text-white">
-            {plan.price}
+            {price}
           </span>
           {plan.priceUnit ? (
             <span className="text-xs text-slate-500 dark:text-slate-400">{plan.priceUnit}</span>
@@ -810,7 +886,7 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
           {plan.priceLabel} · نصب اولیه بدون هزینهٔ جداگانه
         </p>
         <p className="mt-1 text-[11px] font-semibold text-blue-700 dark:text-blue-300">
-          ({plan.perUser})
+          ({perUser})
         </p>
       </div>
       <p className="mt-5 min-h-14 text-sm leading-7 text-slate-600 dark:text-slate-300">
