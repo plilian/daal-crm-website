@@ -620,8 +620,12 @@ const MONTHLY_START_PRICE_PER_USER = MONTHLY_START_PRICE_AT_MIN_USERS / MIN_LICE
 const GROWTH_REFERENCE_USERS = 15;
 const CURRENT_GROWTH_PRICE_AT_REFERENCE_USERS = 6_786_000;
 const GROWTH_PRICE_MULTIPLIER = 1.6;
+const GROWTH_ADDITIONAL_INCREASE_MULTIPLIER = 1.3;
+const MAX_GROWTH_USERS = 50;
 const MONTHLY_GROWTH_PRICE_AT_REFERENCE_USERS =
-  CURRENT_GROWTH_PRICE_AT_REFERENCE_USERS * GROWTH_PRICE_MULTIPLIER;
+  CURRENT_GROWTH_PRICE_AT_REFERENCE_USERS *
+  GROWTH_PRICE_MULTIPLIER *
+  GROWTH_ADDITIONAL_INCREASE_MULTIPLIER;
 const MONTHLY_GROWTH_PRICE_PER_USER =
   MONTHLY_GROWTH_PRICE_AT_REFERENCE_USERS / GROWTH_REFERENCE_USERS;
 const LIFETIME_LICENSE_PRICE = 249_000_000;
@@ -645,6 +649,7 @@ type PricingPlan = {
   eyebrow: string;
   price: string;
   priceUnit: string;
+  priceUnitForUsers?: (users: number) => string;
   priceLabel: string;
   perUser: string;
   users: string;
@@ -667,10 +672,7 @@ const PRICING_PLANS: PricingPlan[] = [
     priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
     perUser: formatPerUser(MONTHLY_START_PRICE_PER_USER),
-    users: "حداقل ۵ کاربر",
-    priceForUsers: (users) => formatMillionToman(MONTHLY_START_PRICE_PER_USER * users),
-    perUserForUsers: () => formatPerUser(MONTHLY_START_PRICE_PER_USER),
-    usersForUsers: (users) => `برای ${formatUserCount(users)} کاربر`,
+    users: "تا ۵ کاربر",
     description:
       "برای تیمی که می‌خواهد سرنخ‌ها و پیگیری‌های فروش را از فایل‌ها و پیام‌رسان‌ها جدا کند.",
     features: [
@@ -690,10 +692,20 @@ const PRICING_PLANS: PricingPlan[] = [
     priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
     perUser: formatPerUser(MONTHLY_GROWTH_PRICE_PER_USER),
-    users: "حداقل ۵ کاربر",
-    priceForUsers: (users) => formatMillionToman(MONTHLY_GROWTH_PRICE_PER_USER * users),
-    perUserForUsers: () => formatPerUser(MONTHLY_GROWTH_PRICE_PER_USER),
-    usersForUsers: (users) => `برای ${formatUserCount(users)} کاربر`,
+    users: "۵ تا ۵۰ کاربر",
+    priceForUsers: (users) =>
+      users <= MAX_GROWTH_USERS
+        ? formatMillionToman(MONTHLY_GROWTH_PRICE_PER_USER * users)
+        : "قیمت سازمانی",
+    priceUnitForUsers: (users) => (users <= MAX_GROWTH_USERS ? "تومان / ماه" : ""),
+    perUserForUsers: (users) =>
+      users <= MAX_GROWTH_USERS
+        ? formatPerUser(MONTHLY_GROWTH_PRICE_PER_USER)
+        : "بیش از ۵۰ کاربر؛ قیمت‌گذاری سازمانی",
+    usersForUsers: (users) =>
+      users <= MAX_GROWTH_USERS
+        ? `برای ${formatUserCount(users)} کاربر`
+        : "بیش از ۵۰ کاربر · سازمانی",
     description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش‌های دقیق‌تر جلو ببرد.",
     features: [
       "همه امکانات پلن شروع",
@@ -783,7 +795,7 @@ function PricingSection() {
               تعداد کاربران
             </label>
             <p className="mt-1 text-xs leading-6 text-slate-500 dark:text-slate-400">
-              حداقل ۵ کاربر؛ قیمت پلن‌های ماهانه با تعداد انتخابی محاسبه می‌شود.
+              حداقل ۵ کاربر؛ از ۵ تا ۵۰ کاربر، قیمت پلن رشد با تعداد انتخابی محاسبه می‌شود.
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -805,8 +817,8 @@ function PricingSection() {
             <span className="text-xs text-slate-500 dark:text-slate-400">نفر</span>
           </div>
           <p className="max-w-md text-xs leading-6 text-slate-500 dark:text-slate-400 sm:text-left">
-            قیمت پلن رشد نسبت به قیمت فعلی خودش ۶۰٪ افزایش یافته است؛ پلن دائمی مستقل از این محاسبه
-            است.
+            برای بیش از ۵۰ کاربر، به‌جای پلن رشد باید دربارهٔ استقرار سازمانی صحبت کنیم؛ پلن دائمی
+            مستقل از این محاسبه است.
           </p>
         </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
@@ -852,6 +864,7 @@ function PricingSection() {
 
 function PricingPlanCard({ plan, userCount }: { plan: PricingPlan; userCount: number }) {
   const price = plan.priceForUsers?.(userCount) ?? plan.price;
+  const priceUnit = plan.priceUnitForUsers?.(userCount) ?? plan.priceUnit;
   const perUser = plan.perUserForUsers?.(userCount) ?? plan.perUser;
   const users = plan.usersForUsers?.(userCount) ?? plan.users;
 
@@ -878,8 +891,8 @@ function PricingPlanCard({ plan, userCount }: { plan: PricingPlan; userCount: nu
           <span className="text-3xl font-black tracking-tight text-[#101827] dark:text-white">
             {price}
           </span>
-          {plan.priceUnit ? (
-            <span className="text-xs text-slate-500 dark:text-slate-400">{plan.priceUnit}</span>
+          {priceUnit ? (
+            <span className="text-xs text-slate-500 dark:text-slate-400">{priceUnit}</span>
           ) : null}
         </div>
         <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
