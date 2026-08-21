@@ -634,10 +634,10 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "شروع",
     eyebrow: "برای تیم‌های کوچک",
-    price: "۲٫۲۸ میلیون",
+    price: "۲٫۹۶۴ میلیون",
     priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
-    perUser: "معادل ۴۵۶ هزار تومان برای هر کاربر",
+    perUser: "معادل ۵۹۲٫۸ هزار تومان برای هر کاربر",
     users: "تا ۵ کاربر",
     description:
       "برای تیمی که می‌خواهد سرنخ‌ها و پیگیری‌های فروش را از فایل‌ها و پیام‌رسان‌ها جدا کند.",
@@ -654,10 +654,10 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "رشد",
     eyebrow: "برای تیم‌های فروش در حال رشد",
-    price: "۴٫۶۸ میلیون",
+    price: "۶٫۷۸۶ میلیون",
     priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
-    perUser: "معادل ۳۱۲ هزار تومان برای هر کاربر",
+    perUser: "معادل ۴۵۲٫۴ هزار تومان برای هر کاربر",
     users: "تا ۱۵ کاربر",
     description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش‌های دقیق‌تر جلو ببرد.",
     features: [
@@ -674,10 +674,10 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "سازمانی",
     eyebrow: "برای استقرار اختصاصی",
-    price: "از ۱۰٫۶۸ میلیون",
-    priceUnit: "تومان / ماه",
-    priceLabel: "لایسنس ماهانه",
-    perUser: "قیمت هر کاربر پس از برآورد سازمانی",
+    price: "تماس بگیرید",
+    priceUnit: "",
+    priceLabel: "قیمت‌گذاری سفارشی",
+    perUser: "بر اساس تعداد کاربران و نیاز سازمان",
     users: "تعداد کاربر سفارشی",
     description:
       "برای سازمانی که اتصال‌های اختصاصی، فرایندهای سفارشی و هماهنگی مستقیم برای استقرار می‌خواهد.",
@@ -802,7 +802,9 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
           <span className="text-3xl font-black tracking-tight text-[#101827] dark:text-white">
             {plan.price}
           </span>
-          <span className="text-xs text-slate-500 dark:text-slate-400">{plan.priceUnit}</span>
+          {plan.priceUnit ? (
+            <span className="text-xs text-slate-500 dark:text-slate-400">{plan.priceUnit}</span>
+          ) : null}
         </div>
         <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
           {plan.priceLabel} · نصب اولیه بدون هزینهٔ جداگانه
