@@ -4,7 +4,13 @@ import { BrandMark } from "@/components/brand-mark";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { formatTomanCompact } from "@/lib/format";
-import { canonicalLinks, DEMO_FAQ_ITEMS, getDemoStructuredData, publicSocialMeta } from "@/lib/seo";
+import {
+  canonicalLinks,
+  DEMO_FAQ_ITEMS,
+  getDemoStructuredData,
+  OFFICIAL_DAAL_URL,
+  publicSocialMeta,
+} from "@/lib/seo";
 import { CRM_URL } from "@/lib/site";
 import {
   ArrowLeft,
@@ -181,17 +187,27 @@ function DemoPage() {
     <div className="min-h-svh overflow-hidden bg-[#f5f3ee] text-[#172033] dark:bg-slate-950 dark:text-slate-100">
       <header className="border-b border-[#dfe2e6] bg-[#f5f3ee]/95 dark:border-slate-800 dark:bg-slate-950/95">
         <div className="mx-auto flex h-[4.75rem] max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
-          <Link to="/" className="flex items-center gap-3">
-            <BrandMark
-              className="size-9 rounded-xl p-1"
-              markClassName="rounded-lg text-xs"
-              decorative
-            />
-            <span className="brand-mark text-base tracking-tight">DaalCRM</span>
-            <span className="hidden border-s border-[#c9cdd3] ps-3 text-[11px] text-slate-500 sm:inline">
-              سامانه مدیریت مشتریان دال
-            </span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
+              <BrandMark
+                className="size-9 rounded-xl p-1"
+                markClassName="rounded-lg text-xs"
+                decorative
+              />
+              <span className="brand-mark text-base tracking-tight">DaalCRM</span>
+              <span className="hidden border-s border-[#c9cdd3] ps-3 text-[11px] text-slate-500 sm:inline">
+                سامانه مدیریت مشتریان دال
+              </span>
+            </Link>
+            <a
+              href={OFFICIAL_DAAL_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden border-s border-[#c9cdd3] ps-3 text-[11px] text-slate-500 underline-offset-4 hover:text-slate-950 hover:underline lg:inline-flex dark:hover:text-white"
+            >
+              محصول گروه فناوری دال · daalgp.com
+            </a>
+          </div>
           <nav
             className="hidden items-center gap-7 text-xs text-slate-500 md:flex"
             aria-label="ناوبری عمومی"
@@ -248,6 +264,17 @@ function DemoPage() {
               <p className="mt-6 max-w-md text-base leading-8 text-slate-600 dark:text-slate-300">
                 DaalCRM سرنخ، مخاطب، معامله، پیگیری، فاکتور و پرداخت را به هم وصل می‌کند تا تیم فروش
                 بداند هر مشتری در چه مرحله‌ای است و قدم بعدی چیست.
+              </p>
+              <p className="mt-3 text-xs leading-6 text-slate-500 dark:text-slate-400">
+                محصول گروه فناوری دال ·{" "}
+                <a
+                  href={OFFICIAL_DAAL_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-slate-700 underline underline-offset-4 hover:text-blue-700 dark:text-slate-200 dark:hover:text-blue-300"
+                >
+                  daalgp.com
+                </a>
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg" className="gap-2 rounded-lg px-5">
@@ -453,10 +480,20 @@ function DemoPage() {
 
       <footer className="bg-[#f5f3ee] px-5 pb-8 text-xs text-slate-500 dark:bg-slate-950 sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 border-t border-[#dfe2e6] pt-5 dark:border-slate-800">
-          <span>سامانه مدیریت مشتریان دال · مدیریت فروش، مشتریان و درآمد</span>
-          <a href={`${CRM_URL}/auth`} className="hover:text-slate-950 dark:hover:text-white">
-            ورود به پنل
-          </a>
+          <span>سامانه مدیریت مشتریان دال · محصول گروه فناوری دال</span>
+          <div className="flex items-center gap-4">
+            <a
+              href={OFFICIAL_DAAL_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-slate-950 dark:hover:text-white"
+            >
+              daalgp.com
+            </a>
+            <a href={`${CRM_URL}/auth`} className="hover:text-slate-950 dark:hover:text-white">
+              ورود به پنل
+            </a>
+          </div>
         </div>
       </footer>
     </div>
