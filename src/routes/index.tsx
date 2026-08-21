@@ -269,7 +269,7 @@ function DemoPage() {
                   <ShieldDot /> داده‌ها روی زیرساخت شما
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300">
-                  <CircleDollarSign className="size-3.5" /> شروع از ۲۹۹ هزار تومان برای هر کاربر
+                  <CircleDollarSign className="size-3.5" /> لایسنس سالانه از ۱۹٫۹ میلیون تومان
                 </span>
               </div>
             </div>
@@ -577,8 +577,8 @@ function DeploymentItem({ number, title, text }: { number: string; title: string
 type PricingPlan = {
   name: string;
   eyebrow: string;
-  monthly: string;
-  annual: string;
+  price: string;
+  priceLabel: string;
   users: string;
   description: string;
   features: string[];
@@ -590,9 +590,9 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "شروع",
     eyebrow: "برای تیم‌های کوچک",
-    monthly: "۲۹۹ هزار",
-    annual: "۲۴۹ هزار",
-    users: "حداقل ۳ کاربر",
+    price: "۱۹٫۹ میلیون",
+    priceLabel: "لایسنس سالانه",
+    users: "تا ۵ کاربر",
     description: "برای اینکه تیم فروش سریع از اکسل و پیام‌رسان جدا شود و یک مسیر مشترک داشته باشد.",
     features: [
       "سرنخ، مخاطب و شرکت",
@@ -605,9 +605,9 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "رشد",
     eyebrow: "برای تیم‌های فروش در حال رشد",
-    monthly: "۳۹۹ هزار",
-    annual: "۳۳۳ هزار",
-    users: "حداقل ۳ کاربر",
+    price: "۳۹٫۹ میلیون",
+    priceLabel: "لایسنس سالانه",
+    users: "تا ۱۵ کاربر",
     description:
       "برای تیمی که می‌خواهد پیگیری‌ها، کمپین‌ها و تصمیم‌های فروش را منظم و قابل‌اندازه‌گیری کند.",
     features: [
@@ -623,9 +623,9 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "سازمانی",
     eyebrow: "برای استقرار اختصاصی",
-    monthly: "۶۹۹ هزار",
-    annual: "۵۸۳ هزار",
-    users: "از ۱۰ کاربر",
+    price: "از ۷۹٫۹ میلیون",
+    priceLabel: "لایسنس سالانه اختصاصی",
+    users: "کاربران سفارشی",
     description:
       "برای سازمانی که داده را روی زیرساخت خودش نگه می‌دارد و راه‌اندازی همراه تیم می‌خواهد.",
     features: [
@@ -648,14 +648,14 @@ function PricingSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
-            قیمت‌گذاری شروع دال
+            قیمت‌گذاری لایسنس دال
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            CRM کامل، با قیمتی که تیم ایرانی بتواند سریع شروع کند.
+            CRM کامل، با لایسنس سالانه و استقرار روی سرور خودتان.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            قیمت‌ها به‌ازای هر کاربر فعال در ماه محاسبه شده‌اند تا بتوانید بدون قرارداد سنگین شروع
-            کنید و با رشد تیم، هزینه را شفاف بالا ببرید. پرداخت سالانه شامل دو ماه رایگان است.
+            قیمت‌ها برای حق استفاده یک‌ساله و بر اساس ظرفیت تیم تعیین شده‌اند. دال روی زیرساخت شما
+            نصب می‌شود و نصب اولیه، پشتیبانی و به‌روزرسانی در طول اعتبار لایسنس را پوشش می‌دهد.
           </p>
         </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -669,12 +669,12 @@ function PricingSection() {
             خرید، بدون هزینه جداگانه.
           </p>
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">قیمت سالانه:</span> معادل دو
-            ماه رایگان در هر پلن.
+            <span className="font-bold text-[#101827] dark:text-white">نوع خرید:</span> لایسنس
+            سالانه روی سرور شما.
           </p>
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">سازمانی:</span> برای مهاجرت و
-            اتصال ویژه، پیشنهاد دقیق می‌دهیم.
+            <span className="font-bold text-[#101827] dark:text-white">تمدید:</span> برای ادامه
+            استفاده، هر سال تمدید می‌شود.
           </p>
         </div>
       </div>
@@ -704,12 +704,12 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
       <div className="mt-6 border-y border-[#dfe2e6] py-4 dark:border-slate-800">
         <div className="flex items-baseline gap-2">
           <span className="text-3xl font-black tracking-tight text-[#101827] dark:text-white">
-            {plan.monthly}
+            {plan.price}
           </span>
-          <span className="text-xs text-slate-500 dark:text-slate-400">تومان / کاربر / ماه</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">تومان / سال</span>
         </div>
         <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
-          پرداخت سالانه: <span className="font-bold">{plan.annual} تومان</span> برای هر کاربر در ماه
+          {plan.priceLabel} · نصب اولیه بدون هزینه جداگانه
         </p>
       </div>
       <p className="mt-5 min-h-14 text-sm leading-7 text-slate-600 dark:text-slate-300">
