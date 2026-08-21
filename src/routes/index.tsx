@@ -812,7 +812,7 @@ function PricingSection() {
             </p>
           </div>
           <div className="flex min-w-0 flex-1 items-center gap-3 sm:max-w-xl">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">۵</span>
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">۱۰۰</span>
             <input
               id="pricing-user-count"
               type="range"
@@ -825,7 +825,7 @@ function PricingSection() {
               className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-blue-100 accent-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-800"
               aria-label="تعداد کاربران"
             />
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">۱۰۰</span>
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">۵</span>
             <span className="min-w-20 text-center text-sm font-black text-blue-700 dark:text-blue-300">
               {formatUserCount(userCount)} نفر
             </span>
