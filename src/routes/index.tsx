@@ -240,14 +240,14 @@ function DemoPage() {
               سؤالات متداول
             </a>
             <a href={`${CRM_URL}/demo`} className="font-semibold text-blue-600 hover:text-blue-700">
-              مشاهدهٔ دموی CRM
+              دریافت دسترسی دمو
             </a>
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button asChild size="sm" className="hidden gap-1.5 rounded-lg sm:inline-flex">
               <a href={`${CRM_URL}/demo`}>
-                مشاهدهٔ دموی CRM <ArrowUpLeft className="size-3.5" />
+                دریافت دسترسی دمو <ArrowUpLeft className="size-3.5" />
               </a>
             </Button>
           </div>
@@ -288,7 +288,7 @@ function DemoPage() {
                   variant="outline"
                   className="rounded-lg border-[#cbd1da] bg-transparent px-5"
                 >
-                  <a href={`${CRM_URL}/demo`}>مشاهدهٔ دموی CRM</a>
+                  <a href={`${CRM_URL}/demo`}>دریافت دسترسی دمو</a>
                 </Button>
               </div>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[11px] text-slate-500 dark:text-slate-400">
@@ -299,7 +299,7 @@ function DemoPage() {
                   <ShieldDot /> نصب روی سرور سازمان شما
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300">
-                  <CircleDollarSign className="size-3.5" /> لایسنس سالانه بر اساس تعداد کاربر
+                  <CircleDollarSign className="size-3.5" /> لایسنس ماهانه بر اساس تعداد کاربر
                 </span>
               </div>
             </div>
@@ -471,7 +471,7 @@ function DemoPage() {
             </div>
             <Button asChild size="lg" className="shrink-0 gap-2 rounded-lg px-5">
               <a href={`${CRM_URL}/demo`}>
-                مشاهدهٔ دموی CRM <ArrowUpLeft className="size-4" />
+                دریافت دسترسی دمو <ArrowUpLeft className="size-4" />
               </a>
             </Button>
           </div>
@@ -563,7 +563,7 @@ function DeploymentSection() {
             دال روی سرور شما اجرا می‌شود؛ اطلاعات مشتری نزد خودتان می‌ماند.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            لایسنس سالانه را تهیه می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود و راه‌اندازی اولیه
+            لایسنس ماهانه را تهیه می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود و راه‌اندازی اولیه
             را همراه تیم‌تان پیش می‌بریم.
           </p>
         </div>
@@ -592,7 +592,7 @@ function DeploymentSection() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button asChild className="gap-2 rounded-lg">
             <a href={`${CRM_URL}/demo`}>
-              مشاهدهٔ دموی CRM <ArrowUpLeft className="size-4" />
+              دریافت دسترسی دمو <ArrowUpLeft className="size-4" />
             </a>
           </Button>
           <p className="text-xs leading-6 text-slate-500 dark:text-slate-400">
@@ -622,6 +622,7 @@ type PricingPlan = {
   users: string;
   description: string;
   features: string[];
+  support: string;
   cta: string;
   popular?: boolean;
 };
@@ -630,8 +631,8 @@ const PRICING_PLANS: PricingPlan[] = [
   {
     name: "شروع",
     eyebrow: "برای تیم‌های کوچک",
-    price: "۱۹٫۹ میلیون",
-    priceLabel: "لایسنس سالانه",
+    price: "۱٫۹ میلیون",
+    priceLabel: "لایسنس ماهانه",
     users: "تا ۵ کاربر",
     description:
       "برای تیمی که می‌خواهد سرنخ‌ها و پیگیری‌های فروش را از فایل‌ها و پیام‌رسان‌ها جدا کند.",
@@ -639,16 +640,17 @@ const PRICING_PLANS: PricingPlan[] = [
       "مدیریت سرنخ، مخاطب و شرکت",
       "معاملات و قیف فروش",
       "پیگیری‌ها و داشبورد فروش",
-      "پیش‌فاکتور و ثبت پرداخت",
+      "پیش‌فاکتور، ثبت پرداخت و گزارش پایه",
       "اتصال حسابفا و زرین‌پال",
     ],
-    cta: "اول دمو را ببینید",
+    support: "راهنمای راه‌اندازی؛ پشتیبانی مستمر ندارد.",
+    cta: "دریافت دسترسی دمو",
   },
   {
     name: "رشد",
     eyebrow: "برای تیم‌های فروش در حال رشد",
-    price: "۳۹٫۹ میلیون",
-    priceLabel: "لایسنس سالانه",
+    price: "۳٫۹ میلیون",
+    priceLabel: "لایسنس ماهانه",
     users: "تا ۱۵ کاربر",
     description: "برای تیمی که می‌خواهد فروش را با کمپین، خودکارسازی و گزارش‌های دقیق‌تر جلو ببرد.",
     features: [
@@ -658,24 +660,27 @@ const PRICING_PLANS: PricingPlan[] = [
       "گزارش فروش و عملکرد تیم",
       "چت با داده‌های CRM",
     ],
-    cta: "مشاهدهٔ دموی CRM",
+    support: "پشتیبانی فنی و پاسخ‌گویی در ساعات کاری.",
+    cta: "دریافت دسترسی دمو",
     popular: true,
   },
   {
     name: "سازمانی",
     eyebrow: "برای استقرار اختصاصی",
-    price: "از ۷۹٫۹ میلیون",
-    priceLabel: "لایسنس سالانه اختصاصی",
-    users: "کاربران سفارشی",
-    description: "برای سازمانی که استقرار خصوصی، اتصال‌های موردنیاز و کنترل کامل داده می‌خواهد.",
+    price: "از ۸٫۹ میلیون",
+    priceLabel: "لایسنس ماهانه",
+    users: "تعداد کاربر سفارشی",
+    description:
+      "برای سازمانی که اتصال‌های اختصاصی، فرایندهای سفارشی و هماهنگی مستقیم برای استقرار می‌خواهد.",
     features: [
       "همه امکانات پلن رشد",
       "ایجنت‌های هوش مصنوعی و اتصال‌های پیشرفته",
-      "اتصال SMS، SMTP، Asterisk و مدل‌های هوش مصنوعی",
-      "نقش‌ها و دسترسی‌های سازمانی",
-      "مهاجرت داده و تنظیمات متناسب با فرایند فروش",
+      "اتصال SMS، SMTP، Asterisk / Issabel و مدل‌های هوش مصنوعی",
+      "اتصال سفارشی به حسابداری، درگاه پرداخت یا سرویس داخلی شما",
+      "مهاجرت داده، نقش‌ها و تنظیمات متناسب با فرایند سازمان",
     ],
-    cta: "درخواست پیشنهاد سازمانی",
+    support: "پشتیبانی اختصاصی، هماهنگی مستقیم و SLA توافقی.",
+    cta: "درخواست جلسه سازمانی",
   },
 ];
 
@@ -691,11 +696,12 @@ function PricingSection() {
             قیمت‌گذاری لایسنس دال
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            CRM کامل، با لایسنس سالانه و استقرار روی سرور خودتان.
+            CRM کامل، با لایسنس ماهانه و استقرار روی سرور خودتان.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            قیمت‌ها برای حق استفاده یک‌ساله و بر اساس ظرفیت تیم تعیین شده‌اند. دال روی زیرساخت شما
-            نصب می‌شود و نصب اولیه، پشتیبانی و به‌روزرسانی در طول اعتبار لایسنس را پوشش می‌دهد.
+            برای اجرای DaalCRM روی زیرساخت خودتان، بر اساس تعداد کاربران لایسنس ماهانه می‌خرید.
+            داده‌ها روی سرور شما می‌مانند؛ هزینهٔ سرور و سرویس‌های بیرونی با سازمان شماست و در صورت
+            تمدیدنکردن پرداخت، حق استفاده از نرم‌افزار ادامه پیدا نمی‌کند.
           </p>
         </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -703,18 +709,34 @@ function PricingSection() {
             <PricingPlanCard key={plan.name} plan={plan} />
           ))}
         </div>
+        <div className="mt-8 flex flex-col gap-5 border-s-2 border-blue-600 ps-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold text-[#101827] dark:text-white">
+              نیاز سازمانی خارج از پلن‌ها دارید؟
+            </p>
+            <p className="mt-2 text-xs leading-6 text-slate-500 dark:text-slate-400">
+              اگر حسابداری، درگاه پرداخت، سرویس پیامک یا گردش‌کار دیگری استفاده می‌کنید، نام سرویس و
+              نیازتان را بفرستید تا اتصال یا قابلیت سفارشی را بررسی و جداگانه برآورد کنیم.
+            </p>
+          </div>
+          <Button asChild variant="outline" className="shrink-0 gap-2 rounded-lg">
+            <a href={`${CRM_URL}/demo`}>
+              درخواست بررسی سفارشی <ArrowUpLeft className="size-4" />
+            </a>
+          </Button>
+        </div>
         <div className="mt-8 grid gap-3 border-y border-[#dfe2e6] py-5 text-xs leading-6 text-slate-500 dark:border-slate-800 dark:text-slate-400 sm:grid-cols-3">
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">نصب اولیه:</span> پس از خرید
-            و بدون هزینه جداگانه انجام می‌شود.
+            <span className="font-bold text-[#101827] dark:text-white">استقرار:</span> نصب و
+            راه‌اندازی اولیه پس از شروع لایسنس و بدون هزینهٔ جداگانه انجام می‌شود.
           </p>
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">نوع خرید:</span> حق استفاده
-            یک‌ساله از نرم‌افزار روی سرور شما.
+            <span className="font-bold text-[#101827] dark:text-white">مالکیت داده:</span> نرم‌افزار
+            روی سرور سازمان شماست و داده‌ها از زیرساخت شما خارج نمی‌شوند.
           </p>
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">تمدید:</span> برای ادامه
-            استفاده، لایسنس هر سال تمدید می‌شود.
+            <span className="font-bold text-[#101827] dark:text-white">سفارشی‌سازی:</span> اتصال یا
+            قابلیتی خارج از پلن‌ها را بگویید تا بررسی و جداگانه برآورد کنیم.
           </p>
         </div>
       </div>
@@ -746,10 +768,10 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
           <span className="text-3xl font-black tracking-tight text-[#101827] dark:text-white">
             {plan.price}
           </span>
-          <span className="text-xs text-slate-500 dark:text-slate-400">تومان / سال</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">تومان / ماه</span>
         </div>
         <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
-          {plan.priceLabel} · نصب اولیه بدون هزینه جداگانه
+          {plan.priceLabel} · نصب اولیه بدون هزینهٔ جداگانه
         </p>
       </div>
       <p className="mt-5 min-h-14 text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -763,6 +785,9 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
           </li>
         ))}
       </ul>
+      <p className="mt-5 border-t border-[#dfe2e6] pt-4 text-xs leading-6 text-slate-600 dark:border-slate-800 dark:text-slate-300">
+        <span className="font-bold text-[#101827] dark:text-white">پشتیبانی:</span> {plan.support}
+      </p>
       <Button
         asChild
         className="mt-6 w-full gap-2 rounded-lg"
