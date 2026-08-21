@@ -47,12 +47,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "سامانه مدیریت مشتریان دال برای مدیریت سرنخ، معاملات، پیگیری، اتوماسیون، تحلیل فروش، پیش‌فاکتور، پرداخت و گزارش؛ دموی واقعی را ببینید و دال را روی سرور خودتان مستقر کنید.",
+          "سامانه مدیریت مشتریان دال برای مدیریت سرنخ، معاملات، پیگیری، اتوماسیون، تحلیل فروش، پیش‌فاکتور، پرداخت و گزارش؛ با لایسنس ماهانه یا خرید دائمی، دال را روی سرور خودتان مستقر کنید.",
       },
       ...publicSocialMeta({
         title: "سامانه مدیریت مشتریان دال | CRM فارسی برای فروش",
         description:
-          "سرنخ‌ها، معاملات، پیگیری‌ها و پرداخت‌ها را با اتوماسیون و تحلیل هوشمند در یک جریان فروش روشن مدیریت کنید.",
+          "سرنخ‌ها، معاملات، پیگیری‌ها و پرداخت‌ها را با اتوماسیون و تحلیل هوشمند در یک جریان فروش روشن مدیریت کنید؛ ماهانه یا با خرید دائمی.",
         pathname: "/",
       }),
     ],
@@ -299,7 +299,7 @@ function DemoPage() {
                   <ShieldDot /> نصب روی سرور سازمان شما
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-bold text-blue-700 dark:text-blue-300">
-                  <CircleDollarSign className="size-3.5" /> لایسنس ماهانه بر اساس تعداد کاربر
+                  <CircleDollarSign className="size-3.5" /> لایسنس ماهانه یا دائمی
                 </span>
               </div>
             </div>
@@ -563,8 +563,8 @@ function DeploymentSection() {
             دال روی سرور شما اجرا می‌شود؛ اطلاعات مشتری نزد خودتان می‌ماند.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            لایسنس ماهانه را تهیه می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود و راه‌اندازی اولیه
-            را همراه تیم‌تان پیش می‌بریم.
+            لایسنس ماهانه یا دائمی را انتخاب می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود و
+            راه‌اندازی اولیه را همراه تیم‌تان پیش می‌بریم.
           </p>
         </div>
         <div className="mt-12 grid divide-y border-y border-[#dfe2e6] dark:divide-slate-800 dark:border-slate-800 md:grid-cols-4 md:divide-x md:divide-y-0 md:rtl:divide-x-reverse">
@@ -586,7 +586,7 @@ function DeploymentSection() {
           <DeploymentItem
             number="۰۴"
             title="همراهی شروع کار"
-            text="برای آموزش تیم و تنظیم مسیر فروش، در شروع استفاده کنار شما هستیم."
+            text="خرید دائمی شامل سه ماه پشتیبانی پس از استقرار است؛ سطح پشتیبانی پلن‌های ماهانه هم شفاف مشخص شده است."
           />
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -618,6 +618,7 @@ type PricingPlan = {
   name: string;
   eyebrow: string;
   price: string;
+  priceUnit: string;
   priceLabel: string;
   perUser: string;
   users: string;
@@ -626,6 +627,7 @@ type PricingPlan = {
   support: string;
   cta: string;
   popular?: boolean;
+  badge?: string;
 };
 
 const PRICING_PLANS: PricingPlan[] = [
@@ -633,6 +635,7 @@ const PRICING_PLANS: PricingPlan[] = [
     name: "شروع",
     eyebrow: "برای تیم‌های کوچک",
     price: "۲٫۲۸ میلیون",
+    priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
     perUser: "معادل ۴۵۶ هزار تومان برای هر کاربر",
     users: "تا ۵ کاربر",
@@ -652,6 +655,7 @@ const PRICING_PLANS: PricingPlan[] = [
     name: "رشد",
     eyebrow: "برای تیم‌های فروش در حال رشد",
     price: "۴٫۶۸ میلیون",
+    priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
     perUser: "معادل ۳۱۲ هزار تومان برای هر کاربر",
     users: "تا ۱۵ کاربر",
@@ -671,6 +675,7 @@ const PRICING_PLANS: PricingPlan[] = [
     name: "سازمانی",
     eyebrow: "برای استقرار اختصاصی",
     price: "از ۱۰٫۶۸ میلیون",
+    priceUnit: "تومان / ماه",
     priceLabel: "لایسنس ماهانه",
     perUser: "قیمت هر کاربر پس از برآورد سازمانی",
     users: "تعداد کاربر سفارشی",
@@ -687,6 +692,27 @@ const PRICING_PLANS: PricingPlan[] = [
     support: "پشتیبانی اختصاصی، هماهنگی مستقیم و SLA توافقی.",
     cta: "درخواست جلسه سازمانی",
   },
+  {
+    name: "دائمی",
+    eyebrow: "برای خرید یک‌باره",
+    price: "۲۰۰ میلیون",
+    priceUnit: "تومان",
+    priceLabel: "لایسنس دائمی",
+    perUser: "هزینهٔ یک‌باره؛ تعداد کاربران طبق قرارداد",
+    users: "تعداد کاربر توافقی",
+    description:
+      "برای سازمانی که ترجیح می‌دهد هزینهٔ لایسنس را یک‌بار پرداخت کند و بدون تمدید ماهانه از نسخهٔ خریداری‌شده استفاده کند.",
+    features: [
+      "امکانات هستهٔ CRM و مدیریت فروش",
+      "استقرار روی سرور سازمان شما",
+      "لایسنس دائمی بدون تمدید ماهانه",
+      "سه ماه پشتیبانی پس از خرید و استقرار",
+      "اتصال‌ها و توسعه‌های اختصاصی، جداگانه برآورد می‌شوند",
+    ],
+    support: "۳ ماه پشتیبانی پس از خرید و استقرار؛ تمدید پشتیبانی پس از آن اختیاری و جداگانه است.",
+    cta: "درخواست خرید دائمی",
+    badge: "خرید یک‌باره",
+  },
 ];
 
 function PricingSection() {
@@ -701,15 +727,17 @@ function PricingSection() {
             قیمت‌گذاری لایسنس دال
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            CRM کامل، با لایسنس ماهانه و استقرار روی سرور خودتان.
+            CRM کامل، با لایسنس ماهانه یا خرید دائمی روی سرور خودتان.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            برای اجرای DaalCRM روی زیرساخت خودتان، بر اساس تعداد کاربران لایسنس ماهانه می‌خرید.
-            داده‌ها روی سرور شما می‌مانند؛ هزینهٔ سرور و سرویس‌های بیرونی با سازمان شماست و در صورت
-            تمدیدنکردن پرداخت، حق استفاده از نرم‌افزار ادامه پیدا نمی‌کند.
+            برای اجرای DaalCRM روی زیرساخت خودتان، یا لایسنس ماهانه را بر اساس ظرفیت تیم انتخاب
+            می‌کنید یا با پرداخت یک‌بارهٔ ۲۰۰ میلیون تومان، لایسنس دائمی می‌خرید. داده‌ها روی سرور
+            شما می‌مانند؛ هزینهٔ سرور و سرویس‌های بیرونی با سازمان شماست. خرید دائمی شامل سه ماه
+            پشتیبانی است و پس از آن تمدید پشتیبانی اختیاری و جداگانه خواهد بود؛ در مدل ماهانه، با
+            توقف پرداخت حق استفاده از نرم‌افزار ادامه پیدا نمی‌کند.
           </p>
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
           {PRICING_PLANS.map((plan) => (
             <PricingPlanCard key={plan.name} plan={plan} />
           ))}
@@ -740,8 +768,9 @@ function PricingSection() {
             روی سرور سازمان شماست و داده‌ها از زیرساخت شما خارج نمی‌شوند.
           </p>
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">سفارشی‌سازی:</span> اتصال یا
-            قابلیتی خارج از پلن‌ها را بگویید تا بررسی و جداگانه برآورد کنیم.
+            <span className="font-bold text-[#101827] dark:text-white">پشتیبانی:</span> خرید دائمی
+            سه ماه پشتیبانی دارد؛ تمدید پشتیبانی پس از آن اختیاری است و سطح پشتیبانی پلن‌های ماهانه
+            در کارت هر پلن آمده است.
           </p>
         </div>
       </div>
@@ -758,9 +787,9 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
           : "border-[#dfe2e6] bg-[#fbfaf8] dark:border-slate-800 dark:bg-slate-950/40"
       }`}
     >
-      {plan.popular ? (
+      {plan.popular || plan.badge ? (
         <span className="absolute -top-3 right-5 bg-blue-600 px-3 py-1 text-[10px] font-bold text-white">
-          انتخاب محبوب تیم‌ها
+          {plan.badge ?? "انتخاب محبوب تیم‌ها"}
         </span>
       ) : null}
       <p className="text-xs font-bold text-blue-600 dark:text-blue-300">{plan.eyebrow}</p>
@@ -773,7 +802,7 @@ function PricingPlanCard({ plan }: { plan: PricingPlan }) {
           <span className="text-3xl font-black tracking-tight text-[#101827] dark:text-white">
             {plan.price}
           </span>
-          <span className="text-xs text-slate-500 dark:text-slate-400">تومان / ماه</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">{plan.priceUnit}</span>
         </div>
         <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
           {plan.priceLabel} · نصب اولیه بدون هزینهٔ جداگانه
