@@ -795,30 +795,30 @@ function PricingSection() {
               تعداد کاربران
             </label>
             <p className="mt-1 text-xs leading-6 text-slate-500 dark:text-slate-400">
-              حداقل ۵ کاربر؛ از ۵ تا ۵۰ کاربر، قیمت پلن رشد با تعداد انتخابی محاسبه می‌شود.
+              تعداد کاربران تیم را انتخاب کنید تا قیمت پلن رشد نمایش داده شود.
             </p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex min-w-0 flex-1 items-center gap-3 sm:max-w-xl">
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">۵</span>
             <input
               id="pricing-user-count"
-              type="number"
+              type="range"
+              dir="ltr"
               min={MIN_LICENSE_USERS}
+              max={100}
               step={1}
               value={userCount}
-              onChange={(event) => {
-                const next = Number.parseInt(event.target.value, 10);
-                setUserCount(
-                  Number.isFinite(next) ? Math.max(MIN_LICENSE_USERS, next) : MIN_LICENSE_USERS,
-                );
-              }}
-              className="h-11 w-28 rounded-lg border border-slate-300 bg-white px-3 text-center text-sm font-bold text-slate-900 outline-none ring-blue-500 focus:ring-2 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+              onChange={(event) => setUserCount(Number(event.target.value))}
+              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-blue-100 accent-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-800"
               aria-label="تعداد کاربران"
             />
-            <span className="text-xs text-slate-500 dark:text-slate-400">نفر</span>
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">۱۰۰</span>
+            <span className="min-w-20 text-center text-sm font-black text-blue-700 dark:text-blue-300">
+              {formatUserCount(userCount)} نفر
+            </span>
           </div>
           <p className="max-w-md text-xs leading-6 text-slate-500 dark:text-slate-400 sm:text-left">
-            برای بیش از ۵۰ کاربر، به‌جای پلن رشد باید دربارهٔ استقرار سازمانی صحبت کنیم؛ پلن دائمی
-            مستقل از این محاسبه است.
+            برای تیم‌های بزرگ‌تر از ۵۰ نفر، پیشنهاد سازمانی ارائه می‌شود.
           </p>
         </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
