@@ -23,6 +23,7 @@ import {
   CreditCard,
   Calculator,
   ListTodo,
+  Plug,
   Plus,
   Target,
   TrendingUp,
@@ -207,6 +208,12 @@ function Dashboard() {
               <Link to="/demo/deals" className="gap-2">
                 <Target className="size-4" />
                 مشاهده قیف
+              </Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link to="/demo/integrations" className="gap-2">
+                <Plug className="size-4" />
+                اتصال سرویس‌ها
               </Link>
             </Button>
           </div>

@@ -99,17 +99,22 @@ const NAV: NavGroup[] = [
     ],
   },
   {
+    title: "اتصال‌ها",
+    items: [
+      {
+        to: "/demo/integrations",
+        label: "اتصال سرویس‌ها",
+        icon: Plug,
+        roles: ["admin", "manager"],
+      },
+    ],
+  },
+  {
     title: "هوشمندسازی",
     items: [
       { to: "/demo/automations", label: "اتوماسیون", icon: Workflow },
       { to: "/demo/agents", label: "ایجنت‌های AI", icon: Bot },
       { to: "/demo/ai-chat", label: "چت با داده‌ها", icon: MessagesSquare },
-      {
-        to: "/demo/integrations",
-        label: "یکپارچه‌سازی‌ها",
-        icon: Plug,
-        roles: ["admin", "manager"],
-      },
     ],
   },
   {
@@ -158,7 +163,8 @@ function readOpenGroups(groupTitles: string[], pathname: string): Record<string,
   }
   const open: Record<string, boolean> = {};
   for (const title of groupTitles) {
-    open[title] = stored[title] ?? (title === activeTitle || title === "اصلی");
+    open[title] =
+      stored[title] ?? (title === activeTitle || title === "اصلی" || title === "اتصال‌ها");
   }
   if (activeTitle) open[activeTitle] = true;
   return open;

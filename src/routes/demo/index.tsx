@@ -191,7 +191,7 @@ function DemoGatePage() {
                 value={form.fullName}
                 required
                 onChange={(value) => update("fullName", value)}
-                placeholder="مثلاً سارا محمدی"
+                placeholder="علی علیزاده"
               />
               <Field
                 label="نام شرکت"
@@ -199,10 +199,10 @@ function DemoGatePage() {
                 value={form.company}
                 required
                 onChange={(value) => update("company", value)}
-                placeholder="مثلاً راهکار نو"
+                placeholder="گروه فناوری دال"
               />
               <Field
-                label="ایمیل کاری"
+                label="ایمیل"
                 id="email"
                 type="email"
                 dir="ltr"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import type { PublicUser, Role } from "@/demo/server/types";
 import { getMe } from "@/demo/server/functions";
 
@@ -19,26 +19,11 @@ export const ROLE_OPTIONS = (Object.keys(ROLE_LABELS) as Role[]).map((value) => 
 }));
 
 export function useAuth() {
-  const [user, setUser] = useState<PublicUser | null>(null);
-  const [checking, setChecking] = useState(true);
-
-  useEffect(() => {
-    let mounted = true;
-    getMe()
-      .then((u) => {
-        if (!mounted) return;
-        setUser(u);
-        setChecking(false);
-      })
-      .catch(() => {
-        if (!mounted) return;
-        setUser(null);
-        setChecking(false);
-      });
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  const { data: user = null, isLoading: checking } = useQuery<PublicUser | null>({
+    queryKey: ["demo-me"],
+    queryFn: getMe,
+    retry: false,
+  });
 
   const roles: Role[] = user ? [user.role] : [];
   const isDemo = user?.id === "00000000-0000-0000-0000-000000000001";
