@@ -93,8 +93,8 @@ function DemoGatePage() {
   }
 
   return (
-    <div className="min-h-svh bg-[#f7f9fc] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-      <header className="border-b border-slate-200/80 bg-white/90 dark:border-slate-800 dark:bg-slate-950/90">
+    <div className="marketing-page demo-gate-page min-h-svh bg-[#f7f2ea] text-[#1f1410] dark:bg-[#1f1410] dark:text-[#fff8ef]">
+      <header className="border-b border-slate-200/80 bg-[#f7f2ea]/95 dark:border-slate-800 dark:bg-[#1f1410]/95">
         <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3">
@@ -103,7 +103,7 @@ function DemoGatePage() {
                 markClassName="rounded-lg text-xs"
                 decorative
               />
-              <span className="brand-mark text-base tracking-tight">DaalCRM</span>
+              <span className="brand-mark text-base tracking-tight">دال</span>
             </Link>
             <a
               href={OFFICIAL_DAAL_URL}
@@ -164,7 +164,7 @@ function DemoGatePage() {
           </div>
         </section>
 
-        <section className="border border-slate-200 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900/60">
+        <section className="rounded-3xl border border-border bg-card p-6 shadow-[0_24px_60px_-40px_rgb(31_20_16_/_0.55)] sm:p-10">
           <form className="space-y-5" onSubmit={submit}>
             <div className="mb-7">
               <h2 className="text-xl font-bold text-slate-950 dark:text-white">
@@ -250,7 +250,12 @@ function DemoGatePage() {
                 rows={4}
               />
             </div>
-            <Button type="submit" size="lg" className="w-full gap-2 rounded-xl" disabled={loading}>
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full gap-2 rounded-full"
+              disabled={loading}
+            >
               {loading ? "در حال آماده‌سازی…" : "مشاهدهٔ دموی CRM"}
               <ArrowUpLeft className="size-4" />
             </Button>

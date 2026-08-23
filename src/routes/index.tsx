@@ -184,9 +184,9 @@ function DemoPage() {
   const selectedFeature = FEATURES.find((feature) => feature.id === activeFeature) ?? FEATURES[1]!;
 
   return (
-    <div className="min-h-svh overflow-hidden bg-[#f5f3ee] text-[#172033] dark:bg-slate-950 dark:text-slate-100">
-      <header className="border-b border-[#dfe2e6] bg-[#f5f3ee]/95 dark:border-slate-800 dark:bg-slate-950/95">
-        <div className="mx-auto flex h-[4.75rem] max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
+    <div className="marketing-page min-h-svh overflow-hidden bg-[#f5f3ee] text-[#172033] dark:bg-slate-950 dark:text-slate-100">
+      <header className="sticky top-0 z-30 border-b border-[#dfe2e6] bg-[#f5f3ee]/95 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/95">
+        <div className="mx-auto flex h-[5.25rem] max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3">
               <BrandMark
@@ -194,7 +194,7 @@ function DemoPage() {
                 markClassName="rounded-lg text-xs"
                 decorative
               />
-              <span className="brand-mark text-base tracking-tight">DaalCRM</span>
+              <span className="brand-mark text-base tracking-tight">دال</span>
               <span className="hidden border-s border-[#c9cdd3] ps-3 text-[11px] text-slate-500 sm:inline">
                 سامانه مدیریت مشتریان دال
               </span>
@@ -258,15 +258,18 @@ function DemoPage() {
         <section className="border-b border-[#dfe2e6] bg-[#f5f3ee] dark:border-slate-800 dark:bg-slate-950">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16 lg:py-24">
             <div className="order-1 max-w-xl lg:order-1">
-              <h1 className="max-w-lg text-4xl font-black leading-[1.22] tracking-tight text-[#101827] dark:text-white sm:text-5xl">
-                از اولین سرنخ تا دریافت وجه، فروش را یک‌جا دنبال کنید.
+              <p className="mb-5 text-xs font-bold tracking-tight text-blue-600 dark:text-blue-300">
+                محصول دال · سامانه مدیریت مشتریان
+              </p>
+              <h1 className="max-w-lg text-4xl font-black leading-[1.16] tracking-[-0.045em] text-[#101827] dark:text-white sm:text-6xl">
+                دال؛ از اولین سرنخ تا دریافت وجه.
               </h1>
               <p className="mt-6 max-w-md text-base leading-8 text-slate-600 dark:text-slate-300">
                 DaalCRM سرنخ، مخاطب، معامله، پیگیری، فاکتور و پرداخت را به هم وصل می‌کند تا تیم فروش
                 بداند هر مشتری در چه مرحله‌ای است و قدم بعدی چیست.
               </p>
               <p className="mt-3 text-xs leading-6 text-slate-500 dark:text-slate-400">
-                محصول گروه فناوری دال ·{" "}
+                سامانه‌ای برای اینکه تیم فروش بداند هر مشتری کجاست و قدم بعدی چیست ·{" "}
                 <a
                   href={OFFICIAL_DAAL_URL}
                   target="_blank"
@@ -325,7 +328,7 @@ function DemoPage() {
         >
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+              <p className="text-xs font-bold tracking-tight text-blue-600 dark:text-blue-300">
                 ابزارهای فروش دال
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
@@ -409,9 +412,7 @@ function DemoPage() {
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="flex flex-col justify-between gap-6 border-b border-white/15 pb-10 sm:flex-row sm:items-end">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-300">
-                  جریان کاری فروش
-                </p>
+                <p className="text-xs font-bold tracking-tight text-blue-300">جریان کاری فروش</p>
                 <h2 className="mt-4 max-w-2xl text-3xl font-black leading-tight tracking-tight sm:text-4xl">
                   فروش وقتی جلو می‌رود که قدم بعدی روشن باشد.
                 </h2>
@@ -458,7 +459,7 @@ function DemoPage() {
         <section className="border-b border-[#dfe2e6] bg-[#f5f3ee] px-5 py-16 dark:border-slate-800 dark:bg-slate-950 sm:px-8 sm:py-24">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
             <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+              <p className="text-xs font-bold tracking-tight text-blue-600 dark:text-blue-300">
                 مشاهده و خرید
               </p>
               <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
@@ -556,37 +557,38 @@ function DeploymentSection() {
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+          <p className="text-xs font-bold tracking-tight text-blue-600 dark:text-blue-300">
             خرید و استقرار
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
-            دال روی سرور شما اجرا می‌شود؛ اطلاعات مشتری نزد خودتان می‌ماند.
+            مشخصات سرور را به شما می‌گوییم؛ نصب و راه‌اندازی با ماست.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
-            لایسنس ماهانه یا دائمی را انتخاب می‌کنید، نرم‌افزار روی زیرساخت شما نصب می‌شود و
-            راه‌اندازی اولیه را همراه تیم‌تان پیش می‌بریم.
+            دال روی سرور شما اجرا می‌شود و اطلاعات مشتری نزد خودتان می‌ماند. بر اساس تعداد کاربران و
+            نیازهای اتصال، مشخصات سرور مناسب را اعلام می‌کنیم؛ بعد از آماده‌شدن سرور، نصب و
+            راه‌اندازی استاندارد را خودمان انجام می‌دهیم و این بخش کاملاً رایگان است.
           </p>
         </div>
         <div className="mt-12 grid divide-y border-y border-[#dfe2e6] dark:divide-slate-800 dark:border-slate-800 md:grid-cols-4 md:divide-x md:divide-y-0 md:rtl:divide-x-reverse">
           <DeploymentItem
             number="۰۱"
-            title="بررسی قبل از خرید"
-            text="تعداد کاربران، مسیر فروش و اتصال‌های موردنیاز را قبل از تصمیم‌گیری مرور می‌کنیم."
+            title="مشخصات سرور مناسب"
+            text="بر اساس تعداد کاربران، مسیر فروش و اتصال‌های موردنیاز، مشخصات سرور مناسب را اعلام می‌کنیم تا زیرساخت درست را تهیه کنید."
           />
           <DeploymentItem
             number="۰۲"
-            title="نصب و تنظیم اولیه"
-            text="پس از خرید، نصب و تنظیمات اولیه روی سرور سازمان شما بدون هزینه جداگانه انجام می‌شود."
+            title="نصب و راه‌اندازی رایگان"
+            text="بعد از آماده‌شدن سرور، نصب، تنظیم و راه‌اندازی استاندارد را خودمان انجام می‌دهیم؛ این بخش کاملاً رایگان است."
           />
           <DeploymentItem
             number="۰۳"
             title="داده در زیرساخت شما"
-            text="اطلاعات مشتری در سرور سازمان شما می‌ماند و سیاست دسترسی را خودتان تعیین می‌کنید."
+            text="اطلاعات مشتری در سرور سازمان شما می‌ماند و سیاست دسترسی، نگهداری و پشتیبان‌گیری را خودتان تعیین می‌کنید."
           />
           <DeploymentItem
             number="۰۴"
-            title="همراهی شروع کار"
-            text="خرید دائمی شامل سه ماه پشتیبانی پس از استقرار است؛ سطح پشتیبانی پلن‌های ماهانه هم شفاف مشخص شده است."
+            title="داده‌های قبلی و نیازهای ویژه"
+            text="انتقال داده‌های قبلی، پاک‌سازی یا تبدیل اطلاعات، اتصال‌های ویژه و تغییرات سفارشی جداگانه بررسی و برآورد می‌شوند."
           />
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -779,7 +781,7 @@ function PricingSection() {
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-300">
+          <p className="text-xs font-bold tracking-tight text-blue-600 dark:text-blue-300">
             قیمت‌گذاری لایسنس دال
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101827] dark:text-white sm:text-4xl">
@@ -788,9 +790,11 @@ function PricingSection() {
           <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-500 dark:text-slate-400">
             برای اجرای DaalCRM روی زیرساخت خودتان، یکی از دو لایسنس ماهانه را بر اساس تعداد کاربران
             انتخاب می‌کنید یا با پرداخت یک‌بارهٔ ۲۴۹ میلیون تومان، لایسنس دائمی ۲۰ کاربره می‌خرید.
-            داده‌ها روی سرور شما می‌مانند؛ هزینهٔ سرور و سرویس‌های بیرونی با سازمان شماست. خرید
-            دائمی شامل سه ماه پشتیبانی است و پس از آن تمدید پشتیبانی اختیاری و جداگانه خواهد بود؛ در
-            مدل ماهانه، با توقف پرداخت حق استفاده از نرم‌افزار ادامه پیدا نمی‌کند.
+            مشخصات سرور مناسب را قبل از شروع اعلام می‌کنیم و نصب و راه‌اندازی استاندارد روی سرور شما
+            کاملاً رایگان است. هزینهٔ خود سرور و سرویس‌های بیرونی با سازمان شماست؛ انتقال داده‌های
+            قبلی و نیازهای سفارشی جداگانه بررسی می‌شوند. خرید دائمی شامل سه ماه پشتیبانی است و پس از
+            آن تمدید پشتیبانی اختیاری و جداگانه خواهد بود؛ در مدل ماهانه، با توقف پرداخت حق استفاده
+            از نرم‌افزار ادامه پیدا نمی‌کند.
           </p>
         </div>
         <div className="mt-8 flex flex-col gap-4 border-y border-[#dfe2e6] py-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
@@ -851,8 +855,9 @@ function PricingSection() {
         </div>
         <div className="mt-8 grid gap-3 border-y border-[#dfe2e6] py-5 text-xs leading-6 text-slate-500 dark:border-slate-800 dark:text-slate-400 sm:grid-cols-3">
           <p>
-            <span className="font-bold text-[#101827] dark:text-white">استقرار:</span> نصب و
-            راه‌اندازی اولیه پس از شروع لایسنس و بدون هزینهٔ جداگانه انجام می‌شود.
+            <span className="font-bold text-[#101827] dark:text-white">استقرار:</span> مشخصات سرور
+            مناسب را اعلام می‌کنیم و نصب و راه‌اندازی استاندارد روی سرور شما کاملاً رایگان است.
+            انتقال داده‌های قبلی و تغییرات سفارشی جداگانه بررسی می‌شوند.
           </p>
           <p>
             <span className="font-bold text-[#101827] dark:text-white">مالکیت داده:</span> نرم‌افزار
@@ -903,7 +908,7 @@ function PricingPlanCard({ plan, userCount }: { plan: PricingPlan; userCount: nu
           ) : null}
         </div>
         <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400">
-          {plan.priceLabel} · نصب اولیه بدون هزینهٔ جداگانه
+          {plan.priceLabel} · نصب و راه‌اندازی اولیه رایگان
         </p>
         <p className="mt-1 text-[11px] font-semibold text-blue-700 dark:text-blue-300">
           ({perUser})

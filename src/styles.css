@@ -278,6 +278,157 @@
   font-weight: 700;
 }
 
+/* هویت بصری سایت عمومی دال — فقط برای landing، نه محیط عملیاتی CRM */
+.marketing-page {
+  --marketing-cream: #f7f2ea;
+  --marketing-paper: #f1e8de;
+  --marketing-surface: #fffaf4;
+  --marketing-beige: #e8dbcf;
+  --marketing-line: rgb(31 20 16 / 0.11);
+  --marketing-ink: #1f1410;
+  --marketing-muted: rgb(31 20 16 / 0.7);
+  --marketing-terracotta: #c1654a;
+  --marketing-ember: #8b3a22;
+
+  --background: var(--marketing-cream);
+  --foreground: var(--marketing-ink);
+  --card: var(--marketing-surface);
+  --card-foreground: var(--marketing-ink);
+  --popover: var(--marketing-surface);
+  --popover-foreground: var(--marketing-ink);
+  --primary: var(--marketing-terracotta);
+  --primary-foreground: var(--marketing-cream);
+  --secondary: var(--marketing-beige);
+  --secondary-foreground: var(--marketing-ink);
+  --muted: var(--marketing-paper);
+  --muted-foreground: var(--marketing-muted);
+  --accent: rgb(193 101 74 / 0.12);
+  --accent-foreground: var(--marketing-ember);
+  --border: var(--marketing-line);
+  --input: var(--marketing-line);
+  --ring: var(--marketing-terracotta);
+  --brand: var(--marketing-terracotta);
+  --brand-hover: var(--marketing-ember);
+  --brand-soft: rgb(193 101 74 / 0.12);
+  background-color: var(--marketing-cream);
+  color: var(--marketing-ink);
+}
+
+.dark .marketing-page {
+  --marketing-cream: #1f1410;
+  --marketing-paper: #2b1c16;
+  --marketing-surface: #33221b;
+  --marketing-beige: #463027;
+  --marketing-line: rgb(255 248 239 / 0.14);
+  --marketing-ink: #fff8ef;
+  --marketing-muted: rgb(255 248 239 / 0.72);
+}
+
+.marketing-page > header,
+.marketing-page > main > section,
+.marketing-page > footer {
+  border-color: var(--marketing-line) !important;
+}
+
+.marketing-page .bg-white,
+.marketing-page [class~="bg-[#fbfaf8]"] {
+  background-color: var(--marketing-surface) !important;
+}
+
+.marketing-page [class~="bg-white/90"] {
+  background-color: color-mix(in srgb, var(--marketing-cream) 95%, transparent) !important;
+}
+
+.marketing-page [class~="bg-[#f5f3ee]"],
+.marketing-page [class~="bg-[#f8f9fb]"],
+.marketing-page [class~="bg-[#f7f9fc]"] {
+  background-color: var(--marketing-cream) !important;
+}
+
+.marketing-page [class~="bg-[#f2f6ff]"],
+.marketing-page [class~="bg-[#eef3ff]"],
+.marketing-page [class~="bg-blue-50"] {
+  background-color: rgb(193 101 74 / 0.1) !important;
+}
+
+.marketing-page [class~="bg-[#14213d]"],
+.marketing-page [class~="bg-[#111a2d]"],
+.marketing-page [class~="bg-[#172440]"] {
+  background-color: var(--marketing-ink) !important;
+}
+
+.marketing-page [class~="text-blue-600"],
+.marketing-page [class~="text-blue-700"],
+.marketing-page [class~="text-blue-500"] {
+  color: var(--marketing-terracotta) !important;
+}
+
+.marketing-page [class~="text-blue-300"],
+.marketing-page [class~="text-blue-200"] {
+  color: #dba18d !important;
+}
+
+.marketing-page [class~="text-slate-500"],
+.marketing-page [class~="text-slate-600"],
+.marketing-page [class~="text-slate-700"],
+.marketing-page [class~="text-slate-400"] {
+  color: var(--marketing-muted) !important;
+}
+
+.marketing-page [class~="text-slate-900"],
+.marketing-page [class~="text-slate-950"] {
+  color: var(--marketing-ink) !important;
+}
+
+.marketing-page [class~="border-[#dfe2e6]"],
+.marketing-page [class~="border-[#cbd1da]"],
+.marketing-page [class~="border-blue-200"],
+.marketing-page [class~="border-blue-500"],
+.marketing-page [class~="border-slate-200"],
+.marketing-page [class~="border-slate-200/80"],
+.marketing-page [class~="border-slate-700"],
+.marketing-page [class~="border-slate-800"] {
+  border-color: var(--marketing-line) !important;
+}
+
+.marketing-page [class~="accent-blue-600"] {
+  accent-color: var(--marketing-terracotta);
+}
+
+.marketing-page [class~="bg-blue-100"] {
+  background-color: rgb(193 101 74 / 0.16) !important;
+}
+
+.marketing-page [class~="bg-blue-500"] {
+  background-color: var(--marketing-terracotta) !important;
+}
+
+.marketing-page [class~="rounded-lg"] {
+  border-radius: 999px;
+}
+
+.marketing-page [class~="rounded-xl"] {
+  border-radius: 1rem;
+}
+
+.marketing-page h1 {
+  color: var(--marketing-ink);
+  font-weight: 600 !important;
+}
+
+.marketing-page h2,
+.marketing-page h3 {
+  color: var(--marketing-ink);
+  font-weight: 500 !important;
+}
+
+.marketing-page #workflow h1,
+.marketing-page #workflow h2,
+.marketing-page #workflow h3,
+.marketing-page .text-white {
+  color: var(--marketing-cream);
+}
+
 @utility text-display {
   font-size: clamp(1.75rem, 1.5rem + 0.6vw, 2rem);
   font-weight: 700;
